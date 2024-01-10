@@ -52,16 +52,17 @@
 ;; UI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; TODO is this really necessary?
 (disable-theme 'zenburn) ;; NOTE(BK): must disable so prelude respects our theme
 
 ;;(use-package vscode-dark-plus-theme
 ;;  :config (load-theme 'vscode-dark-plus t))
 
-(use-package cyberpunk-theme
-  :config (load-theme 'cyberpunk t))
-
 ;;(use-package tron-legacy-theme
 ;;  :config (load-theme 'tron-legacy t))
+
+(use-package cyberpunk-theme
+  :config (load-theme 'cyberpunk t))
 
 ;; HACK(BK): cyberpunk doesn't have a face for display-line-numbers-mode!
 ;; this should go in custom.el if it isn't there already
