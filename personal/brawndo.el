@@ -229,23 +229,24 @@ Intended as an element of `compilation-finish-functions'."
   :config
   (when (eq system-type 'darwin)
     (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
-    ;; FIXME: am i even using this variable correctly?
-    ;;(setq lsp-clients-clangd-library-directories "/opt/local/")
+    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
 
-    ;; NOTE: probably don't even need this, but here for posterity/sanity
-    ;; (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/"))
+  (when (eq system-type 'gnu/linux)
+    (setq lsp-clients-clangd-executable "/home/brawndo/sandbox/llvm-project/build/bin/clangd")
+    (setq lsp-clients-clangd-library-directories '("/usr","~/sandbox/llvm-project/build/lib"))
 
-    )
-  ;; TODO: seems like i might need to make this variable local to a project?
-  ;; i wonder if i could just keep it 'stock' with the clang++ uncommented
-  ;; and then push the g++ arg into the list in file-local config?
+    ;; KLUDGE broken gcc install?
+    ;;(setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH"))
+  (setenv "LD_LIBRARY_PATH" "/home/brawndo/sandbox/llvm-project/build/lib/x86_64-unknown-linux-gnu/:$LD_LIBRARY_PATH"))
+
+  )
+
+  ;; TODO consider query-driver for project-local variable
   (setq lsp-clients-clangd-args '("-j=4"
                                   "--background-index"
                                   "--clang-tidy"
                                   "--pretty"
-                                  ;;"--query-driver=/opt/local/bin/clang++"
-                                  "--query-driver=/opt/custom/gcc-devel/bin/g++"
-                                  ;;"--query-driver=/opt/local/bin/g++-mp-13"
+                                  "--query-driver=/opt/local/gcc-devel/bin/g++"
                                   "--log=verbose"
                                   "--header-insertion=never"))
 
