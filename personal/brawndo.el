@@ -200,8 +200,6 @@ Intended as an element of `compilation-finish-functions'."
 ;; https://ianyepan.github.io/posts/emacs-ide/
 ;; https://taingram.org/blog/emacs-lsp-ide.html
 
-;; TODO: seems that query-driver is the main thing for ensuring that we get the
-;; correct system headers..
 (use-package lsp-mode
   :config
   (when (eq system-type 'darwin)
