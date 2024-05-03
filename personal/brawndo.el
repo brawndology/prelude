@@ -4,12 +4,7 @@
 ;; TODO: find config for slime/lisp mode....smartparens...
 ;; TODO setup lisp mode with parens on braces! like the OLD DAYS!
 
-
-
-
-
 ;; TODO consider perspective.el?
-;; TODO consider straight.el integration
 ;; TODO treemacs
 ;; TODO consider adding monky for hg support?
 
