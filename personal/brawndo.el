@@ -210,7 +210,7 @@ Intended as an element of `compilation-finish-functions'."
 
   (when (eq system-type 'gnu/linux)
     (setq lsp-clients-clangd-executable "/home/brawndo/sandbox/llvm-project/build/bin/clangd")
-    (setq lsp-clients-clangd-library-directories '("/usr","~/sandbox/llvm-project/build/lib"))
+    (setq lsp-clients-clangd-library-directories '("/usr" "~/sandbox/llvm-project/build/lib"))
 
     ;; KLUDGE broken gcc install?
     ;;(setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH"))
