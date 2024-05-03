@@ -50,7 +50,8 @@
 ;;  ;; If there is more than one, they won't work right.
 ;;
 ;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
-;;  '(line-number-current-line ((t (:inherit line-number :background "#333333")))))
+;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
+;; )
 
 (setq recenter-positions '(top middle bottom))
 (setq load-prefer-newer t)
