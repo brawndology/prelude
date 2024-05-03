@@ -60,7 +60,10 @@
 
 (substitute-key-definition 'find-tag 'helm-etags-select global-map)
 
-(helm-descbinds-mode)
+;; KLUDGE(BK): descbinds author now considers which-key to be incompatible :c
+(unless (which-key-mode)
+  (helm-descbinds-mode))
+
 (helm-mode 1)
 
 ;; enable Helm version of Projectile with replacment commands
