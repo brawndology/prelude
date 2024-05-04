@@ -225,7 +225,9 @@ Intended as an element of `compilation-finish-functions'."
 
   :commands lsp)
 
-(use-package helm-lsp)
+(use-package helm-lsp
+  :commands helm-lsp-workspace-symbol)
+
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map
               ("C-c C-l w" . helm-lsp-workspace-symbol)
