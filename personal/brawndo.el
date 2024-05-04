@@ -43,59 +43,19 @@
 ;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
 ;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
 
-(setq recenter-positions '(top middle bottom))
-(setq load-prefer-newer t)
-(setq helm-move-to-line-cycle-in-source nil) ;; no C-o to move to next "source"
-(setq help-window-select t)
-
-;; TODO  fix cyberpunk theme
 (use-package simple-modeline
   :hook (after-init . simple-modeline-mode))
+
+(setq recenter-positions '(top middle bottom)
+      load-prefer-newer t
+      helm-move-to-line-cycle-in-source nil ;; no C-o to move to next "source"
+      help-window-select t)
 
 (menu-bar-mode 0)
 (display-time-mode 1)
 
 (global-display-line-numbers-mode -1)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Compilation buffer
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; NOTE(BK): shamelessly stolen from https://stackoverflow.com/a/73760499
-;;(add-hook 'compilation-start-hook 'compilation-started)
-;;(add-hook 'compilation-finish-functions 'hide-compile-buffer-if-successful)
-
-;; TODO want to make just give focus to the comp buffer so i can close it whenever?
-(defcustom auto-hide-compile-buffer-delay 2
-  "Time in seconds before auto hiding compile buffer."
-  :group 'compilation
-  :type 'number)
-
-(defun hide-compile-buffer-if-successful (buffer string)
-  (setq compilation-total-time (time-subtract nil compilation-start-time))
-  (setq time-str (concat " (Time: " (format-time-string "%s.%3N" compilation-total-time) "s)"))
-
-  (if
-      (with-current-buffer buffer
-        (setq warnings (eval compilation-num-warnings-found))
-        (setq warnings-str (concat " (Warnings: " (number-to-string warnings) ")"))
-        (setq errors (eval compilation-num-errors-found))
-
-        (if (eq errors 0) nil t))
-
-      ;;If Errors then
-      (message (concat "Compiled with Errors" warnings-str time-str))
-
-    ;;If Compiled Successfully or with Warnings then
-    (progn
-      (bury-buffer buffer)
-      (run-with-timer auto-hide-compile-buffer-delay nil 'delete-window (get-buffer-window buffer 'visible))
-      (message (concat "Compiled Successfully" warnings-str time-str)))))
-
-(make-variable-buffer-local 'compilation-start-time)
-(defun compilation-started (proc)
-  (setq compilation-start-time (current-time)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; C++ config
