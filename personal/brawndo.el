@@ -41,17 +41,10 @@
   :config (load-theme 'cyberpunk t))
 
 ;; HACK(BK): cyberpunk doesn't have a face for display-line-numbers-mode!
-;; this should go in custom.el if it isn't there already
-;;
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
+;; copypasta these values into custom.el's custom-set-faces
 ;;
 ;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
 ;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
-;; )
 
 (setq recenter-positions '(top middle bottom))
 (setq load-prefer-newer t)
