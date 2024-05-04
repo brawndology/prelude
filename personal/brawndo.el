@@ -247,16 +247,16 @@ Intended as an element of `compilation-finish-functions'."
     (message "Active modes are %s" active-modes)))
 
 ;; NOTE(BK): as of emacs 29.1, use-package is builtin!
-;;
+
 ;; (unless (package-installed-p 'use-package)
 ;;   (unless package-archive-contents
 ;;     (package-refresh-contents))
 ;;   (package-install 'use-package))
 
-;;(use-package clues-theme  :defer t)
-;;(use-package github-theme  :defer t)
-;;(use-package darkokai-theme :defer t)
-;;(use-package spacemacs-theme :defer t)
+;;(use-package clues-theme)
+;;(use-package github-theme)
+;;(use-package darkokai-theme)
+;;(use-package spacemacs-theme)
 
 ;; (use-package dashboard
 ;;   :config
