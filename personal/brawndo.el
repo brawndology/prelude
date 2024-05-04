@@ -70,7 +70,7 @@
 ;; NOTE(BK): not sure if this should be axed or combined with code from
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
 (use-package clang-format+
-  :hook (c++-mode . clang-format+-mode) )
+  :hook (c++-mode . clang-format+-mode))
 
 (when (eq system-type 'gnu/linux)
   (setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH")
