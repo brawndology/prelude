@@ -267,10 +267,7 @@ Intended as an element of `compilation-finish-functions'."
 ;;                           (bookmarks . 5)
 ;;                           (agenda    . 5))))
 
-;; XXX need compile commands for my projects since clangd is dumb and insists on treating
-;; macports clang as the default (unless told otherwise by compile_commands.json)
-;; https://github.com/hedronvision/bazel-compile-commands-extractor
-
+;; XXX  https://github.com/hedronvision/bazel-compile-commands-extractor
 
 ;;(remove-hook 'prog-mode 'flycheck-mode)
 
