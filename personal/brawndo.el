@@ -230,7 +230,6 @@ Intended as an element of `compilation-finish-functions'."
 ;; (use-package simple-modeline
 ;;   :hook (after-init . simple-modeline-mode))
 
-
 ;; (use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
 
 ;;(use-package vscode-dark-plus-theme
@@ -238,7 +237,6 @@ Intended as an element of `compilation-finish-functions'."
 
 ;;(use-package tron-legacy-theme
 ;;  :config (load-theme 'tron-legacy t))
-
 
 (defun which-active-modes ()
   "Give a message of which minor modes are enabled in the current buffer."
@@ -250,7 +248,6 @@ Intended as an element of `compilation-finish-functions'."
                            (error nil) ))
           minor-mode-list)
     (message "Active modes are %s" active-modes)))
-
 
 ;; NOTE(BK): as of emacs 29.1, use-package is builtin!
 ;;
@@ -265,7 +262,6 @@ Intended as an element of `compilation-finish-functions'."
 ;;(use-package tron-legacy-theme :defer t)
 ;;(use-package spacemacs-theme :defer t)
 
-
 ;; (use-package dashboard
 ;;   :config
 ;;   (dashboard-setup-startup-hook)
@@ -278,10 +274,6 @@ Intended as an element of `compilation-finish-functions'."
 ;;                           (agenda    . 5))))
 
 ;; XXX  https://github.com/hedronvision/bazel-compile-commands-extractor
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Compilation buffer
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; NOTE(BK): shamelessly stolen from https://stackoverflow.com/a/73760499
 ;;(add-hook 'compilation-start-hook 'compilation-started)
