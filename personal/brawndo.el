@@ -39,7 +39,7 @@
 ;; UI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(disable-theme 'zenburn) ;; NOTE(BK): must disable so prelude respects our theme
+(disable-theme 'zenburn)
 
 ;;(use-package vscode-dark-plus-theme
 ;;  :config (load-theme 'vscode-dark-plus t))
