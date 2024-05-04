@@ -199,7 +199,7 @@ Intended as an element of `compilation-finish-functions'."
 ;; https://taingram.org/blog/emacs-lsp-ide.html
 
 (use-package lsp-mode
-  :config
+  :init
   (when (eq system-type 'darwin)
     (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
     (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
