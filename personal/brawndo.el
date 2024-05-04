@@ -223,11 +223,9 @@ Intended as an element of `compilation-finish-functions'."
   (setq bazel-buildifier-before-save t)
   (add-to-list 'auto-mode-alist '("\\.\\(BUILD\\)\\'" . bazel-mode)))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 (defun which-active-modes ()
   "Give a message of which minor modes are enabled in the current buffer."
