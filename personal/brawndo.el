@@ -1,7 +1,6 @@
 ;; NOTE(BK): requires emacs 29.1 or above
 
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
-
 ;; TODO: find config for slime/lisp mode....smartparens...
 ;; TODO setup lisp mode with parens on braces! like the OLD DAYS!
 
