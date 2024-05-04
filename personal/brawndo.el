@@ -149,13 +149,10 @@ Intended as an element of `compilation-finish-functions'."
 
 (use-package lsp-mode
   :init
+  ;; FIXME: see if i actually need these on darwin!
   (when (eq system-type 'darwin)
     (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
     (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
-
-  (when (eq system-type 'gnu/linux)
-    (setq lsp-clients-clangd-executable "/home/brawndo/sandbox/llvm-project/build/bin/clangd")
-    (setq lsp-clients-clangd-library-directories '("/usr" "~/sandbox/llvm-project/build/lib")))
 
   ;; TODO consider query-driver for project-local variable
   (setq lsp-clients-clangd-args '("-j=12"
@@ -163,7 +160,9 @@ Intended as an element of `compilation-finish-functions'."
                                   "--clang-tidy"
                                   "--pretty"
                                   "--query-driver=/opt/local/gcc-devel/bin/g++"
-                                  "--log=verbose"
+                                  ;;"--log=verbose"
+                                  "--log=info"
+                                  "--pch-storage=memory"
                                   "--header-insertion=never"))
 
   :hook (((c-mode c++-mode) . lsp-deferred)
