@@ -49,14 +49,18 @@
 ;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
 ;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
 
-(use-package simple-modeline
-  :hook (after-init . simple-modeline-mode))
+;; (use-package simple-modeline
+;;   :hook (after-init . simple-modeline-mode))
+
+(use-package mood-line
+  :config (mood-line-mode))
 
 (setq recenter-positions '(top middle bottom)
       load-prefer-newer t
       helm-move-to-line-cycle-in-source nil ;; no C-o to move to next "source"
       help-window-select t)
 
+(display-battery-mode t)
 (global-flycheck-mode -1)
 (menu-bar-mode 0)
 (display-time-mode 1)
