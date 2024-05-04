@@ -258,7 +258,6 @@ Intended as an element of `compilation-finish-functions'."
 ;;(use-package clues-theme  :defer t)
 ;;(use-package github-theme  :defer t)
 ;;(use-package darkokai-theme :defer t)
-;;(use-package tron-legacy-theme :defer t)
 ;;(use-package spacemacs-theme :defer t)
 
 ;; (use-package dashboard
