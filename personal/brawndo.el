@@ -116,9 +116,6 @@ Intended as an element of `compilation-finish-functions'."
 ;; NOTE: prelude auto installs hl-todo, maybe put someting in here w/ use-package
 ;; so LINT and other more useful things can be added WITHOUT using custom.el?
 
-;; NOTE(BK): default 'alien' method doesn't respect ignoring files/directories in .projectile
-;;(setq projectile-indexing-method 'native)
-
 (use-package git-gutter
   :hook (prog-mode . git-gutter-mode ))
 
