@@ -5,7 +5,6 @@
 ;; TODO setup lisp mode with parens on braces! like the OLD DAYS!
 
 ;; TODO consider perspective.el?
-;; TODO treemacs
 ;; TODO consider adding monky for hg support?
 
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff
