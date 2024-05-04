@@ -63,6 +63,7 @@
       helm-move-to-line-cycle-in-source nil ;; no C-o to move to next "source"
       help-window-select t)
 
+(global-flycheck-mode -1)
 (menu-bar-mode 0)
 (display-time-mode 1)
 
@@ -268,7 +269,7 @@ Intended as an element of `compilation-finish-functions'."
 ;; macports clang as the default (unless told otherwise by compile_commands.json)
 ;; https://github.com/hedronvision/bazel-compile-commands-extractor
 
-(global-flycheck-mode -1)
+
 ;;(remove-hook 'prog-mode 'flycheck-mode)
 
 ;;(display-battery-mode t)
