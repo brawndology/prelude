@@ -1,9 +1,7 @@
 ;; NOTE(BK): requires emacs 29.1 or above
 
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
-
-;; TODO consider perspective.el?
-;; TODO consider adding monky for hg support?
+;; TODO consider perspective.el? consider adding monky for hg support?
 
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
