@@ -21,8 +21,7 @@
 (use-package quelpa)
 (use-package quelpa-use-package
   :demand
-  :config
-  (quelpa-use-package-activate-advice))
+  :config (quelpa-use-package-activate-advice))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Performance
@@ -94,8 +93,8 @@ Intended as an element of `compilation-finish-functions'."
 
 (use-package forge
   :init
-  (setq forge-owned-accounts '(("brawndology")))
-  (setq auth-sources '("~/.authinfo")))
+  (setq forge-owned-accounts '(("brawndology"))
+        auth-sources '("~/.authinfo")))
 
 ;; TODO: can i declare these functions in the forge macro?
 
@@ -146,8 +145,7 @@ Intended as an element of `compilation-finish-functions'."
   )
 
 (use-package highlight-doxygen
-  :config
-  (highlight-doxygen-global-mode 1))
+  :config (highlight-doxygen-global-mode 1))
 
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
 ;; https://ianyepan.github.io/posts/emacs-ide/
@@ -175,7 +173,7 @@ Intended as an element of `compilation-finish-functions'."
   :hook (((c-mode c++-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
 
-  :commands lsp)
+  :commands lsp lsp-deferred)
 
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol)
