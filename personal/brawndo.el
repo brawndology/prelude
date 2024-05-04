@@ -96,10 +96,8 @@
   (setq forge-owned-accounts '(("brawndology")))
   (setq auth-sources '("~/.authinfo")))
 
-;; TODO: this should use C-x g M a after the ghub-post to set the remote
-;; this makes sense because the context here is that you have already started
-;; working on some code, and now you want to add it to a repo and have that repo
-;; be pushed upstream
+;; TODO: this should use C-x g M a after ghub-post to set the remote since the
+;; context is that you have a local repo that isn't (yet) pushed upstream
 (require 'ghub)
 (defun create-upstream-repo (repo)
   "Create repo with name REPO on GitHub"
