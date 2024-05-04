@@ -126,7 +126,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package forge
-  :config
+  :init
   (setq forge-owned-accounts '(("brawndology")))
   (setq auth-sources '("~/.authinfo")))
 
