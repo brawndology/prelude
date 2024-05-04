@@ -1,6 +1,5 @@
 ;; NOTE(BK): requires emacs 29.1 or above
 
-;; TODO: figure out why packages are lazily installed?
 ;; TODO: find config for slime/lisp mode....smartparens...
 ;; TODO setup lisp mode with parens on braces! like the OLD DAYS!
 
@@ -9,10 +8,6 @@
 
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
-
-;; TODO: should i put a use-package decl in here to force cmake-mode installation?
-;; melpa very freakily auto-installed it when I opened a CMakeLists.txt... also
-;; wondering if i should install the cmake intellisense crap from melpa?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bootstrapping
