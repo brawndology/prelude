@@ -41,12 +41,6 @@
 
 (disable-theme 'zenburn)
 
-;;(use-package vscode-dark-plus-theme
-;;  :config (load-theme 'vscode-dark-plus t))
-
-;;(use-package tron-legacy-theme
-;;  :config (load-theme 'tron-legacy t))
-
 (use-package cyberpunk-theme
   :config (load-theme 'cyberpunk t))
 
@@ -233,6 +227,14 @@ Intended as an element of `compilation-finish-functions'."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;(use-package vscode-dark-plus-theme
+;;  :config (load-theme 'vscode-dark-plus t))
+
+;;(use-package tron-legacy-theme
+;;  :config (load-theme 'tron-legacy t))
+
 
 (defun which-active-modes ()
   "Give a message of which minor modes are enabled in the current buffer."
