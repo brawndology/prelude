@@ -133,34 +133,26 @@ Intended as an element of `compilation-finish-functions'."
 ;; NOTE(BK): default 'alien' method doesn't respect ignoring files/directories in .projectile
 ;;(setq projectile-indexing-method 'native)
 
-(defun my-pop-to-compilation-buffer (buffer _why)
-  "Pop to `*compilation*' BUFFER.
-Intended as an element of `compilation-finish-functions'."
-  (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
-    (pop-to-buffer buffer)))
-
-(add-to-list 'compilation-finish-functions #'my-pop-to-compilation-buffer)
-
 (use-package git-gutter
   :hook (prog-mode . git-gutter-mode ))
 
-;; (use-package yasnippet-snippets
-;;   :after yasnippet)
+(use-package yasnippet-snippets
+  :after yasnippet)
 
-;; (use-package yasnippet
-;;   :diminish yas-minor-mode
-;;   :config
-;;   (yas-global-mode t)
-;;   (yas-reload-all)
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :config
+  (yas-global-mode t)
 
-;;   ;;(define-key yas-minor-mode-map (kbd "<tab>") nil)
-;;   ;;(define-key yas-minor-mode-map (kbd "C-'") #'yas-expand)
+  ;;(define-key yas-minor-mode-map (kbd "<tab>") nil)
+  ;;(define-key yas-minor-mode-map (kbd "C-'") #'yas-expand)
 
-;;   ;;(add-to-list #'yas-snippet-dirs "snippets")
-;;   (yas-reload-all)
+  ;;(add-to-list #'yas-snippet-dirs "snippets")
+  (yas-reload-all)
 
-;;   ;; TODO: what about this? i don't acutally use ido...
-;;   (setq yas-prompt-functions '(yas-ido-prompt)))
+  ;; TODO: what about this? i don't acutally use ido...
+  ;;(setq yas-prompt-functions '(yas-ido-prompt))
+  )
 
 (use-package highlight-doxygen
   :config
