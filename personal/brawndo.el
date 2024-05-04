@@ -49,8 +49,6 @@
 ;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
 ;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
 
-;; (use-package simple-modeline
-;;   :hook (after-init . simple-modeline-mode))
 
 (use-package mood-line
   :config (mood-line-mode))
@@ -228,6 +226,10 @@ Intended as an element of `compilation-finish-functions'."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; (use-package simple-modeline
+;;   :hook (after-init . simple-modeline-mode))
+
 
 ;; (use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
 
