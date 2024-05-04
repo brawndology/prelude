@@ -114,13 +114,11 @@
 (use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
 
 (use-package modern-cpp-font-lock
-  :hook
-  (c++-mode . modern-c++-font-lock-mode ))
+  :hook (c++-mode . modern-c++-font-lock-mode ))
 
 ;; NOTE(BK): not sure if this should be axed or combined with code from
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
 (use-package clang-format+
-  :config
   :hook (c++-mode . clang-format+-mode) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,8 +167,7 @@ Intended as an element of `compilation-finish-functions'."
 (add-to-list 'compilation-finish-functions #'my-pop-to-compilation-buffer)
 
 (use-package git-gutter
-  :hook
-  (prog-mode . git-gutter-mode ))
+  :hook (prog-mode . git-gutter-mode ))
 
 ;; (use-package yasnippet-snippets
 ;;   :after yasnippet)
