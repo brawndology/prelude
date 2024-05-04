@@ -72,8 +72,6 @@
 ;; C++ config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
-
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode ))
 
@@ -231,6 +229,7 @@ Intended as an element of `compilation-finish-functions'."
 ;;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; (use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
 
 ;;(use-package vscode-dark-plus-theme
 ;;  :config (load-theme 'vscode-dark-plus t))
