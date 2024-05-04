@@ -25,7 +25,6 @@
 ;; UI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; TODO is this really necessary?
 (disable-theme 'zenburn) ;; NOTE(BK): must disable so prelude respects our theme
 
 ;;(use-package vscode-dark-plus-theme
