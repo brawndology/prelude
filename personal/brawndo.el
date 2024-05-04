@@ -280,12 +280,7 @@ Intended as an element of `compilation-finish-functions'."
 ;; Remove battery-mode-line-string from global-mode-string
 ;;(setq global-mode-string (delq 'battery-mode-line-string global-mode-string))
 
-
-
 ;;(setq column-number-mode t)
-
-
-
 
 ;; (use-package treemacs
 ;;   :ensure t
