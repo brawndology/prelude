@@ -101,6 +101,9 @@ Intended as an element of `compilation-finish-functions'."
 
 (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
 
+(use-package evil-nerd-commenter
+  :bind ("M-;" . evilnc-comment-or-uncomment-lines))
+
 (use-package forge
   :init
   (setq forge-owned-accounts '(("brawndology")))
