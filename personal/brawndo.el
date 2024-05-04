@@ -39,9 +39,8 @@
 ;; UI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(disable-theme 'zenburn)
-
 (use-package cyberpunk-theme
+  :init (disable-theme 'zenburn)
   :config (load-theme 'cyberpunk t))
 
 ;; HACK(BK): cyberpunk doesn't have a face for display-line-numbers-mode!
