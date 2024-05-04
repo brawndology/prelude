@@ -112,6 +112,10 @@
 (use-package clang-format+
   :hook (c++-mode . clang-format+-mode) )
 
+(when (eq system-type 'gnu/linux)
+  (setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH")
+  (setenv "LD_LIBRARY_PATH" "/home/brawndo/sandbox/llvm-project/build/lib/x86_64-unknown-linux-gnu/:$LD_LIBRARY_PATH"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; IDE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -194,10 +198,7 @@ Intended as an element of `compilation-finish-functions'."
 
   (when (eq system-type 'gnu/linux)
     (setq lsp-clients-clangd-executable "/home/brawndo/sandbox/llvm-project/build/bin/clangd")
-    (setq lsp-clients-clangd-library-directories '("/usr" "~/sandbox/llvm-project/build/lib"))
-
-    (setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH")
-    (setenv "LD_LIBRARY_PATH" "/home/brawndo/sandbox/llvm-project/build/lib/x86_64-unknown-linux-gnu/:$LD_LIBRARY_PATH"))
+    (setq lsp-clients-clangd-library-directories '("/usr" "~/sandbox/llvm-project/build/lib")))
 
   ;; TODO consider query-driver for project-local variable
   (setq lsp-clients-clangd-args '("-j=12"
