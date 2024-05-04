@@ -94,10 +94,20 @@
 ;;; IDE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun brawndo-pop-to-compilation-buffer (buffer _why)
+  "Pop to `*compilation*' BUFFER.
+Intended as an element of `compilation-finish-functions'."
+  (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
+    (pop-to-buffer buffer)))
+
+(add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
+
 (use-package forge
   :init
   (setq forge-owned-accounts '(("brawndology")))
   (setq auth-sources '("~/.authinfo")))
+
+;; TODO: can i declare these functions in the forge macro?
 
 ;; TODO: this should use C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
