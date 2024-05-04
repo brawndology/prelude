@@ -190,11 +190,9 @@ Intended as an element of `compilation-finish-functions'."
 ;;   ;; TODO: what about this? i don't acutally use ido...
 ;;   (setq yas-prompt-functions '(yas-ido-prompt)))
 
-
 (use-package highlight-doxygen
   :config
   (highlight-doxygen-global-mode 1))
-
 
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
 ;; https://ianyepan.github.io/posts/emacs-ide/
