@@ -72,10 +72,6 @@
 (use-package clang-format+
   :hook (c++-mode . clang-format+-mode))
 
-(when (eq system-type 'gnu/linux)
-  (setenv "LD_LIBRARY_PATH" "/opt/local/gcc-devel/lib64/:$LD_LIBRARY_PATH")
-  (setenv "LD_LIBRARY_PATH" "/home/brawndo/sandbox/llvm-project/build/lib/x86_64-unknown-linux-gnu/:$LD_LIBRARY_PATH"))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; IDE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
