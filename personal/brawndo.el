@@ -227,12 +227,6 @@ Intended as an element of `compilation-finish-functions'."
 
 ;; (use-package rmsbolt) ;; FIXME maybe need to change the bindings? it uses C-c C-c..
 
-;;(use-package vscode-dark-plus-theme
-;;  :config (load-theme 'vscode-dark-plus t))
-
-;;(use-package tron-legacy-theme
-;;  :config (load-theme 'tron-legacy t))
-
 (defun which-active-modes ()
   "Give a message of which minor modes are enabled in the current buffer."
   (interactive)
@@ -251,6 +245,8 @@ Intended as an element of `compilation-finish-functions'."
 ;;     (package-refresh-contents))
 ;;   (package-install 'use-package))
 
+;;(use-package vscode-dark-plus-theme)
+;;(use-package tron-legacy-theme)
 ;;(use-package clues-theme)
 ;;(use-package github-theme)
 ;;(use-package darkokai-theme)
