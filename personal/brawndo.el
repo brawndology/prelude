@@ -222,7 +222,8 @@ Intended as an element of `compilation-finish-functions'."
                                   "--log=verbose"
                                   "--header-insertion=never"))
 
-  :hook ((c-mode c++-mode) . lsp-deferred)
+  :hook (((c-mode c++-mode) . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
 
   :commands lsp)
 
