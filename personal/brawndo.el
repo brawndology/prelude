@@ -1,5 +1,7 @@
 ;; NOTE(BK): requires emacs 29.1 or above
 
+;; TODO: FIX YASNIPPET CONFIG
+
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
 ;; TODO consider perspective.el? consider adding monky for hg support?
 
