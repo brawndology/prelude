@@ -148,21 +148,25 @@ Intended as an element of `compilation-finish-functions'."
 
 (use-package lsp-mode
   :init
-  ;; FIXME: see if i actually need these on darwin!
-  (when (eq system-type 'darwin)
-    (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
-    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
 
   ;; TODO consider query-driver for project-local variable
-  (setq lsp-clients-clangd-args '("-j=12"
+  (setq lsp-clients-clangd-args '("-j=12" ;; TODO: will it just default to max number of threads?
                                   "--background-index"
                                   "--clang-tidy"
                                   "--pretty"
-                                  "--query-driver=/opt/local/gcc-devel/bin/g++"
                                   ;;"--log=verbose"
                                   "--log=info"
                                   "--pch-storage=memory"
                                   "--header-insertion=never"))
+
+  (when (eq system-type 'gnu/linux)
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/g++"))
+
+  (when (eq system-type 'darwin)
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
+    (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
+    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
+
 
   :hook (((c-mode c++-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
