@@ -160,7 +160,9 @@ Intended as an element of `compilation-finish-functions'."
                                   "--header-insertion=never"))
 
   (when (eq system-type 'gnu/linux)
-    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/g++"))
+    ;; TODO: if using clang, can this hurt?
+    ;;(add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/g++")
+    )
 
   (when (eq system-type 'darwin)
     (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
