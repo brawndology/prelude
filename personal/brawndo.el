@@ -91,7 +91,8 @@ Intended as an element of `compilation-finish-functions'."
 
 (use-package forge
   :init
-  (setq forge-owned-accounts '(("brawndology"))
+  (setq forge-owned-accounts '(("brawndology" . nil)
+                               ("Brandon-Kmetz-NS" . nil))
         auth-sources '("~/.authinfo")))
 
 ;; TODO: can i declare these functions in the forge macro?
