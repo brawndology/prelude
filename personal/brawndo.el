@@ -211,6 +211,20 @@ Intended as an element of `compilation-finish-functions'."
 
   )
 
+;; (use-package lsp-sonarlint
+;;   :custom
+;;   ;; Allow sonarlint to download and unzip the official VSCode extension
+;;   ;; If nil, you'll have to do that yourself. See also `lsp-sonarlint-download'
+;;   ;; `lsp-sonarlint-download-url' and `lsp-sonarlint-download-dir'
+;;   (lsp-sonarlint-auto-download t)
+
+;;   ;; Choose which analyzers you want enabled. By default all are enabled
+;;   ;; See command `lsp-sonarlint-available-analyzers' for the full list.
+;;   (lsp-sonarlint-enabled-analyzers '("java"
+;;                                      "cfamily"
+;;                                      "python"
+;;                                      "text")))
+
 ;; NOTE(BK): install buildifer w/ go, put ~/go/bin on path and you're done
 (use-package bazel
   :config
