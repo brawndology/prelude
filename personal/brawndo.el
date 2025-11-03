@@ -220,11 +220,15 @@ Intended as an element of `compilation-finish-functions'."
 
   ;; (lsp-sonarlint-auto-download t)
 
+  ;; NOTE(BK): use system jre if not downloading linux version (not bundled)
+
+  ;; TODO(BK): need to add OS disambiguation here bc the url that is configured
+  ;; by default for downloading the plugin is WRONG
 
   ;;(lsp-sonarlint-use-system-jre t)
   ;;(lsp-sonarlint-download-dir "/home/brawndo/Downloads/sonarlint-vscode-4.34.0/")
 
-
+  ;; FIXME(BK): this shouldn't be hardcoded, need to see if the auto download code is broken
   (lsp-sonarlint-download-dir "/home/brawndo/Downloads/sonarlint-vscode-linux-x64-4.34.0/")
 
   ;; Choose which analyzers you want enabled. By default all are enabled
