@@ -12,6 +12,8 @@
 ;; Bootstrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq warning-minimum-level :emergency)
+
 (eval-when-compile
   (require 'use-package))
 
