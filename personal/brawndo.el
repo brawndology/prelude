@@ -79,8 +79,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun brawndo-pop-to-compilation-buffer (buffer _why)
-  "Pop to `*compilation*' BUFFER.
-Intended as an element of `compilation-finish-functions'."
+  "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
   (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
     (pop-to-buffer buffer)))
 
