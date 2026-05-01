@@ -1,5 +1,5 @@
 ;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
-;; (setq warning-minimum-level :emergency)
+
 
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: check that my changes to the emacs prelude source stuck or are not needed
@@ -37,6 +37,8 @@
 
 (use-package gcmh
   :hook (after-init . gcmh-mode))
+
+;; (setq warning-minimum-level :emergency)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UI
