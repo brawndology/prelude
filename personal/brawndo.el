@@ -1,5 +1,6 @@
 ;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
 
+;; (setq warning-minimum-level :emergency)
 
 
 
@@ -10,7 +11,7 @@
 ;; TODO: add custom file with font faces to repo
 ;; TODO: cleanup this config file and make a new branch
 
-;; (setq warning-minimum-level :emergency)
+
 
 
 
