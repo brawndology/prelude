@@ -1,22 +1,11 @@
 ;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
-
 ;; (setq warning-minimum-level :emergency)
 
-
-
-;; TODO: setup lsp for elisp? setup paredit like old school?
-;; TODO: setup rust?
-
+;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: check that my changes to the emacs prelude source stuck or are not needed
 ;; TODO: add custom file with font faces to repo
 ;; TODO: cleanup this config file and make a new branch
-
-
-
-
-
 ;; TODO: FIX YASNIPPET CONFIG
-
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
 ;; TODO consider perspective.el? consider adding monky for hg support?
 
