@@ -27,6 +27,7 @@
 (setq use-package-always-ensure t)
 
 (use-package quelpa)
+
 (use-package quelpa-use-package
   :demand
   :config (quelpa-use-package-activate-advice))
