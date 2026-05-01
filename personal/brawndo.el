@@ -1,5 +1,5 @@
-;; setup lsp for elisp? setup paredit like old school?
-;; setup rust?
+;; TODO: setup lsp for elisp? setup paredit like old school?
+;; TODO: setup rust?
 
 ;; TODO: check that my changes to the emacs prelude source stuck or are not needed
 ;; TODO: add custom file with font faces to repo
