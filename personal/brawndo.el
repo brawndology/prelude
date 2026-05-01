@@ -1,3 +1,8 @@
+;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
+
+
+
+
 ;; TODO: setup lsp for elisp? setup paredit like old school?
 ;; TODO: setup rust?
 
@@ -7,7 +12,7 @@
 
 ;; (setq warning-minimum-level :emergency)
 
-;; NOTE(BK): requires emacs 29.1 or above
+
 
 ;; TODO: FIX YASNIPPET CONFIG
 
