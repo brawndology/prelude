@@ -1,3 +1,12 @@
+;; setup lsp for elisp? setup paredit like old school?
+;; setup rust?
+
+;; TODO: check that my changes to the emacs prelude source stuck or are not needed
+;; TODO: add custom file with font faces to repo
+;; TODO: cleanup this config file and make a new branch
+
+;; (setq warning-minimum-level :emergency)
+
 ;; NOTE(BK): requires emacs 29.1 or above
 
 ;; TODO: FIX YASNIPPET CONFIG
