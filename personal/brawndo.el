@@ -230,11 +230,24 @@
 
   ;; (lsp-sonarlint-auto-download t)
 
+  (let ((download-url "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/")
+        (version-fmt "sonarlint-vscode-%s-x64-4.34.0.vsix"))
+
+    (when (eq system-type 'gnu/linux)
+      (lsp-sonarlint-download-url
+       "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/sonarlint-vscode-linux-x64-4.34.0.vsix"))
+
+    ;; TODO(BK): need to add OS disambiguation here bc the url that is configured
+    ;; by default for downloading the plugin is WRONG
+
+    (when (eq system-type 'darwin)
+      (lsp-sonarlint-download-url
+       "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/sonarlint-vscode-darwin-x64-4.34.0.vsix"))
+
+    )
+
+
   ;; NOTE(BK): use system jre if not downloading linux version (not bundled)
-
-  ;; TODO(BK): need to add OS disambiguation here bc the url that is configured
-  ;; by default for downloading the plugin is WRONG
-
   ;;(lsp-sonarlint-use-system-jre t)
   ;;(lsp-sonarlint-download-dir "/home/brawndo/Downloads/sonarlint-vscode-4.34.0/")
 
