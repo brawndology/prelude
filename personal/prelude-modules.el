@@ -70,7 +70,7 @@
 (require 'prelude-c)
 ;; (require 'prelude-clojure)
 ;; (require 'prelude-common-lisp)
-;; (require 'prelude-css)
+(require 'prelude-css)
 ;; (require 'prelude-dart)
 (require 'prelude-emacs-lisp)
 ;; (require 'prelude-erlang)
@@ -85,18 +85,18 @@
 (require 'prelude-lsp-mode) ;; lsp-mode and lsp-ui setup (loaded on demand when prelude-lsp-client is 'lsp-mode)
 ;; (require 'prelude-lua)
 ;; (require 'prelude-ocaml)
-;; (require 'prelude-perl)
+(require 'prelude-perl)
 (require 'prelude-python)
 ;; (require 'prelude-racket)
-(require 'prelude-ruby)
+;; (require 'prelude-ruby)
 ;; (require 'prelude-rust)
 ;; (require 'prelude-scala)
 ;; (require 'prelude-scheme)
 (require 'prelude-shell)
 ;; (require 'prelude-scss)
 ;; (require 'prelude-ts)
-;; (require 'prelude-web) ;; Emacs mode for web templates
-;; (require 'prelude-xml)
+(require 'prelude-web) ;; Emacs mode for web templates
+(require 'prelude-xml)
 (require 'prelude-yaml)
 
 ;;; Misc
