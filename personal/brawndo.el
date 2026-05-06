@@ -54,13 +54,11 @@
 
 (use-package cyberpunk-theme
   :init (disable-theme 'zenburn)
-  :config (load-theme 'cyberpunk t))
-
-;; HACK(BK): cyberpunk doesn't have a face for display-line-numbers-mode!
-;; copypasta these values into custom.el's custom-set-faces
-;;
-;;  '(line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
-;;  '(line-number-current-line ((t (:inherit line-number :background "#333333"))))
+  :config (load-theme 'cyberpunk t)
+  :custom-face
+  (line-number ((t (:inherit (shadow default) :foreground "#9fc59f"))))
+  (line-number-current-line ((t (:inherit line-number :background "#333333"))))
+)
 
 (use-package mood-line
   :config (mood-line-mode))
