@@ -1,6 +1,6 @@
 ;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
 
-
+;; TODO: diminish and delight + use-package?
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: check that my changes to the emacs prelude source stuck or are not needed
 ;; TODO: add custom file with font faces to repo
