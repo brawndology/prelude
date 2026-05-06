@@ -1,5 +1,7 @@
 ;; NOTE(BK): REQUIRES (at least!) EMACS 29.1
 
+;; TODO: bytecompile? compile angel HATES lsp-mode.el.....
+
 ;; TODO: diminish and delight + use-package?
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: check that my changes to the emacs prelude source stuck or are not needed
