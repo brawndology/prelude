@@ -69,7 +69,6 @@
 
 (require 'prelude-c)
 ;; (require 'prelude-clojure)
-;; (require 'prelude-coffee)
 ;; (require 'prelude-common-lisp)
 ;; (require 'prelude-css)
 ;; (require 'prelude-dart)
@@ -101,7 +100,9 @@
 (require 'prelude-yaml)
 
 ;;; Misc
-;; (require 'prelude-erc) ;; A popular Emacs IRC client (useful if you're still into Freenode)
+;; (require 'prelude-ai) ;; LLM-backed chat via gptel
+;; (require 'prelude-erc) ;; A popular Emacs IRC client
+;; (require 'prelude-forge) ;; GitHub/GitLab/Gitea PRs and issues via Magit
 
 (provide 'prelude-modules)
 ;;; prelude-modules.el ends here
