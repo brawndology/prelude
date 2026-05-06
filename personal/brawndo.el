@@ -208,46 +208,14 @@
 
 (use-package lsp-sonarlint
   :custom
-  ;; Allow sonarlint to download and unzip the official VSCode extension
-  ;; If nil, you'll have to do that yourself. See also `lsp-sonarlint-download'
-  ;; `lsp-sonarlint-download-url' and `lsp-sonarlint-download-dir'
-
-  ;; (lsp-sonarlint-auto-download t)
-
-
-  ;; NOTE (BK): need to add OS disambiguation here bc the url that is configured
-  ;; by default for downloading the plugin is WRONG
-
-  (let ((download-url "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/")
-        (version-fmt "sonarlint-vscode-%s-x64-4.34.0.vsix"))
-
-    (when (eq system-type 'gnu/linux)
-      (lsp-sonarlint-download-url
-       "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/sonarlint-vscode-linux-x64-4.34.0.vsix"))
-
-    (when (eq system-type 'darwin)
-      (lsp-sonarlint-download-url
-       "https://github.com/SonarSource/sonarlint-vscode/releases/download/4.34.0%2B78640/sonarlint-vscode-darwin-x64-4.34.0.vsix"))
-
-    )
-
-
-  ;; NOTE(BK): use system jre if not downloading linux version (not bundled)
-  ;;(lsp-sonarlint-use-system-jre t)
-  ;;(lsp-sonarlint-download-dir "/home/brawndo/Downloads/sonarlint-vscode-4.34.0/")
-
-  ;; FIXME(BK): this shouldn't be hardcoded, need to see if the auto download code is broken
-  (lsp-sonarlint-download-dir "/home/brawndo/Downloads/sonarlint-vscode-linux-x64-4.34.0/")
-
-  ;; Choose which analyzers you want enabled. By default all are enabled
-  ;; See command `lsp-sonarlint-available-analyzers' for the full list.
-
-  ;; (lsp-sonarlint-enabled-analyzers '("java"
-  ;;                                    "cfamily"
-  ;;                                    "python"
-  ;;                                    "text"))
-
-)
+  (lsp-sonarlint-auto-download t)
+  (lsp-sonarlint-download-url
+   (cond ((eq system-type 'gnu/linux)
+          "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-linux-x64-5.2.1.vsix")
+         ((eq system-type 'darwin)
+          "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-darwin-x64-5.2.1.vsix")
+         ))
+  )
 
 ;; NOTE(BK): install buildifer w/ go, put ~/go/bin on path and you're done
 (use-package bazel
