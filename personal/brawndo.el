@@ -39,12 +39,6 @@
 
   :hook (prog-mode . display-line-numbers-mode))
 
-
-(use-package quelpa)
-(use-package quelpa-use-package
-  :demand
-  :config (quelpa-use-package-activate-advice))
-
 (use-package gcmh
   :hook (after-init . gcmh-mode)) ;; for startup performance
 
@@ -260,3 +254,14 @@
   :config
   (setq bazel-buildifier-before-save t)
   (add-to-list 'auto-mode-alist '("\\.\\(BUILD\\)\\'" . bazel-mode)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Cruft
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; (use-package quelpa)
+;; (use-package quelpa-use-package
+;;   :demand
+;;   :config (quelpa-use-package-activate-advice))
