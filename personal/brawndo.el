@@ -9,7 +9,7 @@
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
 ;; TODO consider perspective.el? consider adding monky for hg support?
 
-;; NOTE: C-o inserts line...interesting....need to remember crux stuff
+;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
