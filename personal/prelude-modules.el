@@ -1,6 +1,6 @@
 ;;; prelude-modules.el --- A listing of modules to load on startup
 ;;
-;; Copyright © 2011-2023 Bozhidar Batsov
+;; Copyright © 2011-2026 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -47,7 +47,10 @@
 (require 'prelude-helm) ;; Interface for narrowing and search
 (require 'prelude-helm-everywhere) ;; Enable Helm everywhere
 (require 'prelude-company)
+;; (require 'prelude-corfu) ;; Lightweight modern alternative to Company (mutually exclusive with prelude-company)
+;; (require 'prelude-apheleia) ;; Async, unified format-on-save
 (require 'prelude-key-chord) ;; Binds useful features to key combinations
+;; (require 'prelude-eglot-booster) ;; Speeds up Eglot via emacs-lsp-booster (requires the binary)
 
 ;;; Vim emulation
 ;;
