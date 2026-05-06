@@ -80,6 +80,7 @@
   :init
   (setq forge-owned-accounts '(("brawndology" . nil)
                                ;; ("Brandon-Kmetz-NS" . nil)
+                               ;; ("brawndo" . nil)
                                )
         auth-sources '("~/.authinfo")))
 
