@@ -39,17 +39,12 @@
 
 
 (use-package quelpa)
-
 (use-package quelpa-use-package
   :demand
   :config (quelpa-use-package-activate-advice))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Performance
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package gcmh
-  :hook (after-init . gcmh-mode))
+  :hook (after-init . gcmh-mode)) ;; for startup performance
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UI
