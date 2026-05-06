@@ -16,15 +16,27 @@
 ;; Bootstrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq warning-minimum-level :emergency)
-
 (eval-when-compile
   (require 'use-package))
 
-(when (daemonp)
-  (setq use-package-always-demand t))
+(use-package emacs
+  :init (setq recenter-positions '(top middle bottom)
+              load-prefer-newer t
+              helm-move-to-line-cycle-in-source nil ;; no C-o to move to next source
+              help-window-select t
+              warning-minimum-level :emergency
+              use-package-always-ensure t
+              use-package-always-demand (when (daemonp) t))
 
-(setq use-package-always-ensure t)
+  :custom
+  (display-battery-mode t)
+  (global-flycheck-mode nil)
+  (menu-bar-mode nil)
+  (display-time-mode t)
+  (global-display-line-numbers-mode nil)
+
+  :hook (prog-mode . display-line-numbers-mode))
+
 
 (use-package quelpa)
 
@@ -55,19 +67,6 @@
 
 (use-package mood-line
   :config (mood-line-mode))
-
-(setq recenter-positions '(top middle bottom)
-      load-prefer-newer t
-      helm-move-to-line-cycle-in-source nil ;; no C-o to move to next "source"
-      help-window-select t)
-
-(display-battery-mode t)
-(global-flycheck-mode -1)
-(menu-bar-mode 0)
-(display-time-mode 1)
-
-(global-display-line-numbers-mode -1)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; C++ config
