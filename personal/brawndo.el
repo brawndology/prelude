@@ -88,11 +88,13 @@
 
 ;; TODO: this should use C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
-(require 'ghub)
-(defun create-upstream-repo (repo)
-  "Create repo with name REPO on GitHub"
-  (interactive "sEnter repo name: ")
-  (ghub-post "/user/repos" `((name . ,repo))))
+(use-package ghub
+  :init
+  (defun create-upstream-repo (repo)
+    "Create empty repo with name REPO on GitHub"
+    (interactive "sEnter repo name: ")
+    (ghub-post "/user/repos" `((name . ,repo)))))
+
 
 ;; here we assume that you already made a local git repo and want an upstream .git
 ;; would STILL need C-x g M a to set our remote!
