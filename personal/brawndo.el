@@ -11,6 +11,9 @@
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
+;; TODO: merge all firefox histories....
+;; TODO: conan stuff...verify lsp working...
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bootstrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
