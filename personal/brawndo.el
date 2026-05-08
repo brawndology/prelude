@@ -91,24 +91,30 @@
 
 ;; TODO: this should use C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
+
+
 (use-package ghub
   :init
+
+  ;; FIXME: still need to use C-x g M or magit-remote-add after both of these
+
   (defun create-upstream-repo (repo)
     "Create empty repo with name REPO on GitHub"
-    (interactive "sEnter repo name: ")
-    (ghub-post "/user/repos" `((name . ,repo)))))
+    (interactive "sEnter repo name: ") ;; TODO: use read-string instead?
+    (ghub-post "/user/repos" `((name . ,repo))))
 
+  (defun smoopy ()
+    "THIS SPACE FOR RENT!"
+    (interactive)
+    (when-let ((git-root (locate-dominating-file default-directory ".git"))
+               (basename (file-name-nondirectory (directory-file-name git-root))))
+      (ghub-post "/user/repos" `((name . ,basename)))
 
-;; here we assume that you already made a local git repo and want an upstream .git
-;; would STILL need C-x g M a to set our remote!
+      ;; TODO: maybe check if we have remotes/origin?
+      ;; TODO: extract hub:/brawndology from ssh config somehow?
+      (magit-remote-add "origin" (concat "hub:/brawndology/" basename ".git"))))
+  )
 
-;; XXX potentially dangerous to use...
-(defun smoopy ()
-  ""
-  (interactive "p")
-  (when-let ((git-root (locate-dominating-file default-directory ".git"))
-             (basename (file-name-nondirectory (directory-file-name git-root))))
-    (ghub-post "/user/repos" `((name . ,basename)))))
 
 ;; NOTE: prelude auto installs hl-todo, maybe put someting in here w/ use-package
 ;; so LINT and other more useful things can be added WITHOUT using custom.el?
