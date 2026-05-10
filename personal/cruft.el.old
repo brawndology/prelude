@@ -45,4 +45,3 @@
 
 ;; XXX  https://github.com/hedronvision/bazel-compile-commands-extractor
 
-;; (setq warning-minimum-level :emergency)
