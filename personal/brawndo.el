@@ -24,7 +24,10 @@
 (use-package emacs
   :init (setq recenter-positions '(top middle bottom)
               load-prefer-newer t
+
+              ;; TODO move this to its own stanza...
               helm-move-to-line-cycle-in-source nil ;; no C-o to move to next source
+
               help-window-select t
               warning-minimum-level :emergency
               use-package-always-ensure t
@@ -32,7 +35,7 @@
 
   :custom
   (display-battery-mode t)
-  (global-flycheck-mode nil)
+  (global-flycheck-mode nil) ;; move to own
   (menu-bar-mode nil)
   (display-time-mode t)
   (global-display-line-numbers-mode nil)
