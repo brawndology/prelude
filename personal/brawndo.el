@@ -48,21 +48,12 @@
   :demand t
   :config
 
-  ;; The following directive prevents compile-angel from compiling your init
-  ;; files. If you choose to remove this push to `compile-angel-excluded-files'
-  ;; and compile your pre/post-init files, ensure you understand the
-  ;; implications and thoroughly test your code. For example, if you're using
-  ;; the `use-package' macro, you'll need to explicitly add:
-  ;; (eval-when-compile (require 'use-package))
-  ;; at the top of your init file.
-
   (setq compile-angel-verbose t)
   (push "/init.el" compile-angel-excluded-files)
   (push "/early-init.el" compile-angel-excluded-files)
-
   ;; (compile-angel-on-load-mode 1)
-  :hook (emacs-lisp-mode . compile-angel-on-save-local-mode)
-  )
+
+  :hook (emacs-lisp-mode . compile-angel-on-save-local-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UI
