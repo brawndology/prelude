@@ -61,8 +61,7 @@
   (push "/early-init.el" compile-angel-excluded-files)
 
   ;; (compile-angel-on-load-mode 1)
-  ;;  :hook (emacs-lisp-mode . compile-angel-on-save-local-mode)
-  (add-hook 'emacs-lisp-mode-hook #'compile-angel-on-save-local-mode)
+  :hook (emacs-lisp-mode . compile-angel-on-save-local-mode)
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
