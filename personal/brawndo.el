@@ -80,6 +80,10 @@
 (use-package mood-line
   :config (mood-line-mode))
 
+(use-package vterm
+  :ensure t
+  :bind ("C-x m" . vterm)) ;; because eshell sucks!
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Development
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
