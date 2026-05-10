@@ -234,8 +234,7 @@
           "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-linux-x64-5.2.1.vsix")
          ((eq system-type 'darwin)
           "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-darwin-x64-5.2.1.vsix")
-         ))
-  )
+         )))
 
 ;; NOTE(BK): install buildifer w/ go, put ~/go/bin on path and you're done
 (use-package bazel
