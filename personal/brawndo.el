@@ -21,6 +21,9 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package flycheck
+  :init (setq global-flycheck-mode nil))
+
 (use-package emacs
   :init (setq recenter-positions '(top middle bottom)
               load-prefer-newer t
@@ -31,7 +34,6 @@
 
   :custom
   (display-battery-mode t)
-  (global-flycheck-mode nil) ;; move to own
   (menu-bar-mode nil)
   (display-time-mode t)
   (global-display-line-numbers-mode nil)
