@@ -24,10 +24,6 @@
 (use-package emacs
   :init (setq recenter-positions '(top middle bottom)
               load-prefer-newer t
-
-              ;; TODO move this to its own stanza...
-              helm-move-to-line-cycle-in-source nil ;; no C-o to move to next source
-
               help-window-select t
               warning-minimum-level :emergency
               use-package-always-ensure t
@@ -75,6 +71,9 @@
 (use-package vterm
   :ensure t
   :bind ("C-x m" . vterm)) ;; because eshell sucks!
+
+(use-package helm
+  :init (setq helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Development
