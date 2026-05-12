@@ -21,9 +21,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package flycheck
-  :init (setq global-flycheck-mode nil))
-
 (use-package emacs
   :init (setq recenter-positions '(top middle bottom)
               load-prefer-newer t
@@ -42,8 +39,6 @@
 
 (use-package gcmh
   :hook (after-init . gcmh-mode)) ;; for startup performance
-
-
 
 (use-package compile-angel
   :demand t
@@ -80,6 +75,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Development
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package flycheck
+  :init (setq global-flycheck-mode nil))
 
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode ))
