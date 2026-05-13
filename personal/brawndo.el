@@ -72,6 +72,16 @@
 (use-package helm
   :init (setq helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
 
+;; TODO: have this handle help window select as well?
+(use-package shackle
+  :ensure t
+  :hook (after-init . shackle-mode)
+  :config
+  (setq shackle-default-size 0.4
+        shackle-rules
+        `(("\\*eldoc.*" :align t :select t :regexp t))))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Development
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
