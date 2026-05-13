@@ -177,12 +177,14 @@
 ;; https://taingram.org/blog/emacs-lsp-ide.html
 
 (use-package lsp-mode
+  :if (eq prelude-lsp-client 'lsp-mode)
   :init
 
   ;; TODO: consider query-driver for project-local variable
   (setq lsp-clients-clangd-args '("-j=12" ;; TODO: will it just default to max number of threads?
                                   "--background-index"
                                   "--clang-tidy"
+                                  "--query-driver=/usr/bin/c++"
                                   "--pretty"
                                   ;;"--log=verbose"
                                   "--log=info"
@@ -205,9 +207,11 @@
   :commands lsp lsp-deferred)
 
 (use-package helm-lsp
+  :if (eq prelude-lsp-client 'lsp-mode)
   :commands helm-lsp-workspace-symbol)
 
 (use-package lsp-ui
+  :if (eq prelude-lsp-client 'lsp-mode)
   :bind (:map lsp-ui-mode-map
               ("C-c C-l w" . helm-lsp-workspace-symbol)
               ("C-c C-l g" . lsp-find-definition))
