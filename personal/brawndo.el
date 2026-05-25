@@ -104,11 +104,11 @@
   :hook (c-mode-common . clang-format+-mode))
 
 
-(defun brawndo-pop-to-compilation-buffer (buffer _why)
-  "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
-  (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
-    (pop-to-buffer buffer)))
-
+;; (defun brawndo-pop-to-compilation-buffer (buffer _why)
+;;   "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
+;;   (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
+;;     (pop-to-buffer buffer)))
+;;
 ;; (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
 
 (use-package evil-nerd-commenter
