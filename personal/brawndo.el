@@ -97,10 +97,11 @@
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode ))
 
-;; NOTE(BK): not sure if this should be axed or combined with code from
+;; TODO(BK): try incorporating this
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
 (use-package clang-format+
-  :hook (c++-mode . clang-format+-mode))
+  :hook (c-mode-common . clang-format+-mode))
+
 
 (defun brawndo-pop-to-compilation-buffer (buffer _why)
   "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
