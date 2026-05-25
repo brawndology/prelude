@@ -81,7 +81,8 @@
         shackle-rules
         `(
           ("\\*eldoc.*" :align t :select t :regexp t)
-          ("\\*Flymake diagnostics.*" :align t :select t :regexp t)
+          ("\\*compilation.*" :align right :select t :regexp t :size 0.5)
+          ;; ("\\*Flymake diagnostics.*" :align t :select t :regexp t)
           ;; TODO: have this handle help window select as well?
           ;; TODO compilation buffer?
           )))
@@ -108,7 +109,7 @@
   (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
     (pop-to-buffer buffer)))
 
-(add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
+;; (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
 
 (use-package evil-nerd-commenter
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
