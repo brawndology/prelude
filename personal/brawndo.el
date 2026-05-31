@@ -1,13 +1,16 @@
+;; TODO: do all prog modes w/ corresponding ts grammer default to ts-mode?
+
 ;; TODO: diminish and delight + use-package?
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
-;; TODO: FIX YASNIPPET CONFIG
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
+;; TODO: FIX YASNIPPET CONFIG
 ;; TODO consider perspective.el? consider adding monky for hg support?
 
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
 ;; TODO: make seperate files for lsp/eglot?
+
 ;; TODO job cuopt -- series of lin constraints, build graph as a node and system of constraints is edges so you also use int value constraints 1,2,3 drones
 ;; graph of depo depos have supplies have trucks moving } asset effectiveness, not kills per hour
 
