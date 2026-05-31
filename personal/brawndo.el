@@ -233,7 +233,6 @@
 
         lsp-ui-imenu-enable t
         lsp-eldoc-enable-hover nil)
-
   )
 
 ;; (use-package lsp-sonarlint
