@@ -38,36 +38,6 @@
 
   :hook (prog-mode . display-line-numbers-mode))
 
-;; (use-package flymake
-;;   :init (setq flymake-margin-indicator-position 'right-margin))
-
-(use-package eglot
-  :init
-  ;;(setq eldoc-echo-area-use-multiline-p nil)
-  :config
-  (add-to-list 'eglot-server-programs
-               ;; TODO: and semgrep..
-
-               '((c-mode c++-mode)
-                 . ("clangd"
-                    "--background-index"
-                    "-query-driver=/usr/bin/c++"
-                    "--clang-tidy"
-                    "--pretty"
-                    "--completion-style=detailed"))))
-
-;; (use-package sideline-eglot
-;;   :hook (eglot-mode . sideline-mode))
-
-;; (use-package sideline-flymake
-;;   :custom
-;;   (sideline-flymake-display-mode 'line)
-;;   :hook (flymake-mode . sideline-mode))
-
-;; (use-package sideline
-;;   :custom
-;;   (sideline-backends-right '(sideline-eglot sideline-flymake)))
-
 (use-package gcmh
   :hook (after-init . gcmh-mode)) ;; for startup performance
 
