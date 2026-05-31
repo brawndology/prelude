@@ -208,75 +208,68 @@
 ;; https://ianyepan.github.io/posts/emacs-ide/
 ;; https://taingram.org/blog/emacs-lsp-ide.html
 
-;; (use-package lsp-mode
-;;   :if (eq prelude-lsp-client 'lsp-mode)
-;;   :init
-;;   (setq lsp-log-io t)
+(use-package lsp-mode
+  :init
+  ;; (setq lsp-log-io t)
+  (setq lsp-clients-clangd-args '("--background-index"
+                                  "--clang-tidy"
+                                  "--pretty"
+                                  "--log=verbose"
+                                  "--log=info"
+                                  "--pch-storage=memory"
+                                  "--header-insertion=never"))
 
-;;   ;; TODO: consider query-driver for project-local variable
-;;   (setq lsp-clients-clangd-args '("-j=12" ;; TODO: will it just default to max number of threads?
-;;                                   "--background-index"
-;;                                   "--clang-tidy"
-;;                                   ;;"--query-driver=/usr/bin/c++"
-;;                                   "--pretty"
-;;                                   ;;"--log=verbose"
-;;                                   "--log=info"
-;;                                   "--pch-storage=memory"
-;;                                   "--header-insertion=never"))
+  (when (eq system-type 'gnu/linux)
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++"))
 
-;;   (when (eq system-type 'gnu/linux)
-;;     (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++"))
+  (when (eq system-type 'darwin)
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
 
-;;   (when (eq system-type 'darwin)
-;;     (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
-;;     (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
-;;     (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
+    (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
+    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
 
 
-;;   :hook (((c-mode c++-mode) . lsp-deferred)
-;;          (lsp-mode . lsp-enable-which-key-integration))
+  :hook (((c-mode c++-mode) . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
 
-;;   :commands lsp lsp-deferred)
+  :commands lsp lsp-deferred)
 
-;; (use-package helm-lsp
-;;   :if (eq prelude-lsp-client 'lsp-mode)
-;;   :commands helm-lsp-workspace-symbol)
+(use-package helm-lsp
+  :commands helm-lsp-workspace-symbol)
 
-;; (use-package lsp-ui
-;;   :if (eq prelude-lsp-client 'lsp-mode)
-;;   :bind (:map lsp-ui-mode-map
-;;               ("C-c C-l w" . helm-lsp-workspace-symbol)
-;;               ("C-c C-l g" . lsp-find-definition))
-;;   :config
-;;   (setq lsp-ui-doc-enable nil
-;;         lsp-ui-doc-header t
-;;         lsp-ui-doc-include-signature t
-;;         lsp-ui-doc-border (face-foreground 'default)
-;;         lsp-ui-sideline-show-code-actions t
-;;         lsp-ui-sideline-delay 0.05)
+(use-package lsp-ui
+  :bind (:map lsp-ui-mode-map
+              ("C-c C-l w" . helm-lsp-workspace-symbol)
+              ("C-c C-l g" . lsp-find-definition))
+  :config
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-border (face-foreground 'default)
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-delay 0.05)
 
-  ;; (setq lsp-ui-sideline-enable t
-  ;;       lsp-ui-sideline-update-mode 'line
-  ;;       lsp-ui-sideline-show-code-actions t
-  ;;       lsp-ui-sideline-show-hover t
-  ;;       lsp-ui-sideline-ignore-duplicate t
+  (setq lsp-ui-sideline-enable t
+        lsp-ui-sideline-update-mode 'line
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-show-hover t
+        lsp-ui-sideline-ignore-duplicate t
 
-  ;;       lsp-ui-sideline-show-code-actions t
-  ;;       lsp-ui-sideline-delay 0.05
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-delay 0.05
 
-  ;;       lsp-ui-doc-enable t ; nil
-  ;;       lsp-ui-doc-border (face-foreground 'default)
-  ;;       lsp-ui-doc-header t
-  ;;       lsp-ui-doc-include-signature t
-  ;;       lsp-ui-doc-position 'at-point
+        lsp-ui-doc-enable t ; nil
+        lsp-ui-doc-border (face-foreground 'default)
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-position 'at-point
 
-  ;;       lsp-ui-imenu-enable t
-  ;;       lsp-eldoc-enable-hover nil)
+        lsp-ui-imenu-enable t
+        lsp-eldoc-enable-hover nil)
 
   )
 
 ;; (use-package lsp-sonarlint
-;;   :if (eq prelude-lsp-client 'lsp-mode)
 ;;   :custom
 
 ;;   (lsp-sonarlint-auto-download t)
@@ -336,3 +329,39 @@
 ;;     (pop-to-buffer buffer)))
 ;;
 ;; (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
+
+
+
+
+;; (use-package flymake
+;;   :init (setq flymake-margin-indicator-position 'right-margin))
+
+;; (use-package eglot
+;;   :init
+;;   ;;(setq eldoc-echo-area-use-multiline-p nil)
+;;   :config
+;;   (add-to-list 'eglot-server-programs
+;;                ;; TODO: and semgrep..semgrep is installed locally
+
+;;                '((c--ts-mode c++-ts-mode)
+;;                  . ("clangd"
+;;                     "--background-index"
+;;                     "-query-driver=/usr/bin/c++"
+;;                     "--clang-tidy"
+;;                     "--pretty"
+;;                     "--completion-style=detailed"))))
+
+;; (use-package sideline-eglot
+;;   :hook (eglot-mode . sideline-mode))
+
+;; (use-package sideline-flymake
+;;   :custom
+;;   (sideline-flymake-display-mode 'line)
+;;   :hook (flymake-mode . sideline-mode))
+
+;; (use-package sideline
+;;   :custom
+;;   (sideline-backends-right '(sideline-eglot
+;;                              ;;sideline-flymake
+
+;;                              )))
