@@ -174,21 +174,21 @@
 (use-package lsp-mode
   :if (eq prelude-lsp-client 'lsp-mode)
   :init
+  (setq lsp-log-io t)
 
   ;; TODO: consider query-driver for project-local variable
   (setq lsp-clients-clangd-args '("-j=12" ;; TODO: will it just default to max number of threads?
                                   "--background-index"
                                   "--clang-tidy"
-                                  "--query-driver=/usr/bin/c++"
+                                  ;;"--query-driver=/usr/bin/c++"
                                   "--pretty"
                                   ;;"--log=verbose"
                                   "--log=info"
                                   "--pch-storage=memory"
                                   "--header-insertion=never"))
 
-  ;; TODO: if using clang, can this hurt?
-  ;; (when (eq system-type 'gnu/linux)
-  ;;   (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/g++"))
+  (when (eq system-type 'gnu/linux)
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++"))
 
   (when (eq system-type 'darwin)
     (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
