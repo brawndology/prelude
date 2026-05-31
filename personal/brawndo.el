@@ -114,7 +114,6 @@
           ("\\*compilation.*" :align right :select t :regexp t :size 0.5)
           ;; ("\\*Flymake diagnostics.*" :align t :select t :regexp t)
           ;; TODO: have this handle help window select as well?
-          ;; TODO compilation buffer?
           )))
 
 
