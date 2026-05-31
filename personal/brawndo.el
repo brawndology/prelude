@@ -104,8 +104,9 @@
 
 ;; TODO(BK): try incorporating this
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
+
 (use-package clang-format+
-  :hook (c-mode-common . clang-format+-mode))
+  :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
 
 (use-package evil-nerd-commenter
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
@@ -331,3 +332,11 @@
 ;;                              ;;sideline-flymake
 
 ;;                              )))
+
+
+;; silly autoformatting
+;; (use-package apheleia
+;;   :ensure t
+;;   :config
+;;   :hook (c-mode-common . apheleia-mode)
+;;   )
