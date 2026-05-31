@@ -7,8 +7,9 @@
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
-;; TODO: merge all firefox histories....
-;; TODO: conan stuff...verify lsp working...
+;; TODO: make seperate files for lsp/eglot?
+;; TODO job cuopt -- series of lin constraints, build graph as a node and system of constraints is edges so you also use int value constraints 1,2,3 drones
+;; graph of depo depos have supplies have trucks moving } asset effectiveness, not kills per hour
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bootstrapping
@@ -237,15 +238,39 @@
 
   )
 
-(use-package lsp-sonarlint
-  :custom
-  (lsp-sonarlint-auto-download t)
-  (lsp-sonarlint-download-url
-   (cond ((eq system-type 'gnu/linux)
-          "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-linux-x64-5.2.1.vsix")
-         ((eq system-type 'darwin)
-          "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-darwin-x64-5.2.1.vsix")
-         )))
+;; (use-package lsp-sonarlint
+;;   :if (eq prelude-lsp-client 'lsp-mode)
+;;   :custom
+
+;;   (lsp-sonarlint-auto-download t)
+;;   (lsp-sonarlint-download-url
+;;    (cond
+;;     ((eq system-type 'gnu/linux)
+;;      "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.3%2B80233/sonarlint-vscode-linux-x64-5.2.3.vsix")
+
+;;     ((eq system-type 'darwin)
+;;      "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.1%2B80172/sonarlint-vscode-darwin-x64-5.2.1.vsix")
+;;     ))
+
+;;   ;; (lsp-sonarlint-download-url
+;;   ;;  (concat
+;;   ;;   "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.2.3%2B80233/"
+;;   ;;   (cond
+;;   ;;    ((eq system-type 'gnu/linux)
+;;   ;;     "sonarlint-vscode-linux-x64-5.2.3.vsix")
+
+;;   ;;    ((eq system-type 'darwin)
+;;   ;;     "/sonarlint-vscode-darwin-x64-5.2.1.vsix")
+;;   ;;    ))
+;;   ;;  )
+
+;;   ;;(lsp-sonarlint-use-system-jre t)
+;;   (lsp-sonarlint-enabled-analyzers '("java"))
+;;   (lsp-sonarlint-cfamily-compile-commands-path "${workspaceFolder}/build/compile_commands.json")
+
+;;   (lsp-sonarlint-show-analyzer-logs t)
+;;   (lsp-sonarlint-verbose-logs t)
+;;   )
 
 ;; NOTE(BK): install buildifer w/ go, put ~/go/bin on path and you're done
 (use-package bazel
