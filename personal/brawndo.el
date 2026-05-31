@@ -121,15 +121,13 @@
 ;; Development
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (use-package flycheck
-;;   :init
-;;   (setq global-flycheck-mode nil)
-;;   ;; (setq flycheck-highlighting-mode nil)
-
-;;   (setq-default flycheck-indication-mode 'left-margin)
-;;   :hook(flycheck-mode . flycheck-set-indication-mode)
-;;   )
-
+(use-package flycheck
+  :init
+  (setq global-flycheck-mode nil)
+  ;; ;; (setq flycheck-highlighting-mode nil)
+  ;; (setq-default flycheck-indication-mode 'left-margin)
+  ;; :hook(flycheck-mode . flycheck-set-indication-mode)
+  )
 
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode ))
