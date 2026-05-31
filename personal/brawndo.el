@@ -23,7 +23,7 @@
               load-prefer-newer t
               help-window-select t
               warning-minimum-level :emergency
-              prelude-lsp-client 'lsp-mode
+              ;; prelude-lsp-client 'lsp-mode
               use-package-always-ensure t
               use-package-always-demand (when (daemonp) t))
 
