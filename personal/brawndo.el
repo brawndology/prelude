@@ -118,11 +118,8 @@
                                )
         auth-sources '("~/.authinfo")))
 
-;; TODO: can i declare these functions in the forge macro?
-
 ;; TODO: this should use C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
-
 
 (use-package ghub
   :init
