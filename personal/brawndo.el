@@ -1,5 +1,3 @@
-;; TODO: do all prog modes w/ corresponding ts grammer default to ts-mode?
-
 ;; TODO: diminish and delight + use-package?
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
