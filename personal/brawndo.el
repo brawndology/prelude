@@ -27,9 +27,12 @@
               use-package-always-ensure t
               use-package-always-demand (when (daemonp) t)
               prelude-lsp-client 'lsp-mode
+
+
+
+              c-doc-comment-style 'doxygen
               ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
               )
-
   :custom
   (display-battery-mode t)
   (menu-bar-mode nil)
@@ -169,8 +172,9 @@
   ;;(setq yas-prompt-functions '(yas-ido-prompt))
   )
 
-(use-package highlight-doxygen
-  :config (highlight-doxygen-global-mode 1))
+;; (use-package highlight-doxygen
+;;   ;;:custom (highlight-doxygen-triple-slash-comment-regexp "/\\\\{3,\\\\}")
+;;   :config (highlight-doxygen-global-mode 1))
 
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
 ;; https://ianyepan.github.io/posts/emacs-ide/
