@@ -1,3 +1,5 @@
+;; TODO: use treesitter modes?
+
 ;; TODO: diminish and delight + use-package?
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
@@ -28,9 +30,7 @@
               use-package-always-demand (when (daemonp) t)
               prelude-lsp-client 'lsp-mode
 
-
-
-              c-doc-comment-style 'doxygen
+              ;;c-doc-comment-style 'doxygen ;; TODO work on this later
               ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
               )
   :custom
@@ -185,11 +185,15 @@
   ;; (setq lsp-log-io t)
   (setq lsp-clients-clangd-args '("--background-index"
                                   "--clang-tidy"
+                                  ;; "--completion-style=detailed"
+                                  ;; "--parse-forwarding-functions"
+                                  ;; "--fallback-style=Google"
                                   "--pretty"
                                   "--log=verbose"
                                   "--log=info"
                                   "--pch-storage=memory"
-                                  "--header-insertion=never"))
+                                  "--header-insertion=never"
+                                  ))
 
   (when (eq system-type 'gnu/linux)
     (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++"))
