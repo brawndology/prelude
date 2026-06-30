@@ -110,6 +110,7 @@
 ;; TODO(BK): try incorporating this
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
 
+;; TODO(BK): can this run alongside apheleia? do i even want apheleia?
 (use-package clang-format+
   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
 
