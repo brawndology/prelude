@@ -36,6 +36,8 @@
               use-package-always-demand (when (daemonp) t)
               prelude-lsp-client 'lsp-mode
 
+              projectile-enable-cmake-presets t
+
               ;;c-doc-comment-style 'doxygen ;; TODO work on this later
               ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
               )
