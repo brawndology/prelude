@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; TODO: use treesitter modes?
 
 ;; TODO: diminish and delight + use-package?
