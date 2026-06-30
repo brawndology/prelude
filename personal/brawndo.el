@@ -292,9 +292,6 @@
   :vc (:url "https://github.com/darcamo/cmake-integration.git"
 	    :rev :newest))
 
-;; TODO: experiment with this...
-;; (use-package consult)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
