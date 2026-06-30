@@ -1,3 +1,5 @@
+;; TODO(BK): um...figure out if/what needs added to the dispatch for helm..
+
 ;; KLUDGE(BK): had to remove refs to projectile-commander in
 ;; helm-projectile.el, so don't update that package/any of them
 ;; until it's fixed upstream (or we just fork it and PR...)
@@ -346,9 +348,14 @@
 ;;                              )))
 
 
-;; silly autoformatting
+;; silly autoformatting that apparently is already in prelude...
 ;; (use-package apheleia
 ;;   :ensure t
 ;;   :config
 ;;   :hook (c-mode-common . apheleia-mode)
 ;;   )
+
+;; (use-package kkp
+;;   :ensure t
+;;   :config
+;;   (global-kkp-mode 1))
