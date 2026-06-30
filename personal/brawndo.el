@@ -105,8 +105,17 @@
   ;; :hook(flycheck-mode . flycheck-set-indication-mode)
   )
 
-(use-package modern-cpp-font-lock
-  :hook (c++-mode . modern-c++-font-lock-mode ))
+
+(use-package treesit-auto
+  :ensure t
+  :custom
+  (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
+  :config
+  (treesit-auto-add-to-auto-mode-alist)
+  (global-treesit-auto-mode))
+
+;; (use-package modern-cpp-font-lock
+;;   :hook (c++-mode . modern-c++-font-lock-mode ))
 
 ;; TODO(BK): try incorporating this
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
