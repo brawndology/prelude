@@ -295,6 +295,15 @@
 ;; TODO: experiment with this...
 ;; (use-package consult)
 
+
+;; TODO: screw around with this, if can't get it to work then i can just type
+;; presets by hand or have the build command save the preset...
+
+;; FIXME f 020 package or some shit not available...is this why it fails to see the cmake presets?
+;; (use-package cmake-integration
+;;   :vc (:url "https://github.com/darcamo/cmake-integration.git"
+;;             :rev :newest))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
