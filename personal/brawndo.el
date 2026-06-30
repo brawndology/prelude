@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
-;; TODO: use treesitter modes?
+;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
+;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
 
 ;; TODO: diminish and delight + use-package?
 ;; TODO: make seperate files for lsp/eglot?
@@ -34,7 +35,7 @@
 
               projectile-enable-cmake-presets t
 
-              ;;c-doc-comment-style 'doxygen ;; TODO work on this later
+              ;;c-doc-comment-style 'doxygen ;; TODO work on this later, also might not work with c-ts-mode!
               ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
               )
   :custom
