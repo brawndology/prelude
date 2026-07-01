@@ -124,7 +124,6 @@
 
 (use-package combobulate
   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master") ;; FIXME should this be branch or rev?
-  ;;:load-path("~/combobulate/")
   :custom (combobulate-key-prefix "C-c m")
   :hook ((prog-mode . combobulate-mode)))
 
