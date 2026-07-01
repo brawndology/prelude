@@ -111,7 +111,6 @@
   ;; :hook(flycheck-mode . flycheck-set-indication-mode)
   )
 
-
 (use-package treesit-auto
   :ensure t
   :custom (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
@@ -123,7 +122,7 @@
   (global-treesit-auto-mode))
 
 (use-package combobulate
-  :vc (:url "https://github.com/mickeynp/combobulate" :branch "master") ;; FIXME should this be branch or rev?
+  :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
   :custom (combobulate-key-prefix "C-c m")
   :hook ((prog-mode . combobulate-mode)))
 
