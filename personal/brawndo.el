@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+
+;; TODO: can we have nested use-package stanzas?
+
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
 ;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
