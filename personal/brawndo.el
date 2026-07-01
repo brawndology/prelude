@@ -128,6 +128,7 @@
   :hook ((prog-mode . combobulate-mode)))
 
 
+;; TODO: cruft this once we test c++-ts-mode and hl stuff
 ;; (use-package modern-cpp-font-lock
 ;;   :hook (c++-mode . modern-c++-font-lock-mode ))
 
