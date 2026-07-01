@@ -213,8 +213,11 @@
                                   "--header-insertion=never"
                                   ))
 
+  ;; FIXME TIL that this must EXACTLY match the compiler in the json database...need dir local stuff or something
   (when (eq system-type 'gnu/linux)
-    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++"))
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++")
+    ;;(add-to-list 'lsp-clients-clangd-args "--query-driver=/home/brawndo/.local/bin/g++-17")
+    )
 
   (when (eq system-type 'darwin)
     (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
