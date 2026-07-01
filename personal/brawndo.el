@@ -360,14 +360,6 @@
 
 ;;                              )))
 
-
-;; silly autoformatting that apparently is already in prelude...
-;; (use-package apheleia
-;;   :ensure t
-;;   :config
-;;   :hook (c-mode-common . apheleia-mode)
-;;   )
-
 ;; (use-package kkp
 ;;   :ensure t
 ;;   :config
