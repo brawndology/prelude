@@ -1,8 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-
-;; TODO: can we have nested use-package stanzas?
-
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
 ;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
@@ -18,6 +15,7 @@
 ;; TODO: FIX YASNIPPET CONFIG
 ;; TODO consider perspective.el? consider adding monky for hg support?
 
+;; NOTE: use-package decls can be nested for proper load order!
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
