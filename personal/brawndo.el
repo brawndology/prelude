@@ -2,6 +2,8 @@
 
 ;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
 ;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
+;; TODO: add org-mode stuff: daily auto-saved and auto-opened notes like at BG
+;; TODO: experiment with combobulate
 
 ;; TODO: diminish and delight + use-package?
 ;; TODO: make seperate files for lsp/eglot?
