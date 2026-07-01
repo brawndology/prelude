@@ -111,8 +111,10 @@
 
 (use-package treesit-auto
   :ensure t
-  :custom
-  (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
+  :custom (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)
+         ("\\.rs\\'" . rust-ts-mode))
   :config
   (treesit-auto-add-to-auto-mode-alist)
   (global-treesit-auto-mode))
