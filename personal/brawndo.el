@@ -311,12 +311,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; (use-package quelpa)
-;; (use-package quelpa-use-package
-;;   :demand
-;;   :config (quelpa-use-package-activate-advice))
-
-
 ;; (defun brawndo-pop-to-compilation-buffer (buffer _why)
 ;;   "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
 ;;   (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
