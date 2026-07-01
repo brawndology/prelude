@@ -33,9 +33,9 @@
               warning-minimum-level :emergency
               use-package-always-ensure t
               use-package-always-demand (when (daemonp) t)
-              prelude-lsp-client 'lsp-mode
 
-              projectile-enable-cmake-presets t
+              prelude-lsp-client 'lsp-mode ;; TODO does this need to be moved to prelude-custom?
+              projectile-enable-cmake-presets t ;; TODO maybe move this to projectile stanza?
 
               ;;c-doc-comment-style 'doxygen ;; TODO work on this later, also might not work with c-ts-mode!
               ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
