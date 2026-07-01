@@ -365,3 +365,6 @@
 ;;   :ensure t
 ;;   :config
 ;;   (global-kkp-mode 1))
+
+;; (use-package clang-format+
+;;   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
