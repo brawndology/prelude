@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-;; FIXME is it treesitter mode's fault? why is emacs contacting elpa every time i save this file...?
-
 ;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
 ;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
 ;; TODO: add org-mode stuff: daily auto-saved and auto-opened notes like at BG
