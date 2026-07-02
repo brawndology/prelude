@@ -123,10 +123,10 @@
   (global-treesit-auto-mode))
 
 ;; FIXME: watch tutorial vid and see what's up with prefix...doesn't seem to be working...
-(use-package combobulate
-  :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
-  :custom (combobulate-key-prefix "C-c m")
-  :hook ((prog-mode . combobulate-mode)))
+;; (use-package combobulate
+;;   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
+;;   :custom (combobulate-key-prefix "C-c m")
+;;   :hook ((prog-mode . combobulate-mode)))
 
 
 ;; TODO: cruft this once we test c++-ts-mode and hl stuff
