@@ -112,6 +112,12 @@
   ;; :hook(flycheck-mode . flycheck-set-indication-mode)
   )
 
+;; TODO: probably want to just copypasta the config from combobulate for
+;; auto installation of servers.. prelude will handle the mapping from
+;; *-mode -> *-ts-mode..
+;;
+;; ..on a clean install with combobulate (which MAY need to be nested..) treesit-auto
+;; fails spectacularly e.g can't find python treesitter
 (use-package treesit-auto
   :ensure t
   :custom (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
