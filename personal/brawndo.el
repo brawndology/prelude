@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
+;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
 ;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
