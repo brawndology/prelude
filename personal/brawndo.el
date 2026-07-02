@@ -121,6 +121,7 @@
   (treesit-auto-add-to-auto-mode-alist)
   (global-treesit-auto-mode))
 
+;; FIXME: watch tutorial vid and see what's up with prefix...doesn't seem to be working...
 (use-package combobulate
   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
   :custom (combobulate-key-prefix "C-c m")
