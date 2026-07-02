@@ -131,12 +131,6 @@
 ;; (use-package modern-cpp-font-lock
 ;;   :hook (c++-mode . modern-c++-font-lock-mode ))
 
-;; TODO(BK): try incorporating this
-;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
-
-;; TODO(BK): can this run alongside apheleia? do i even want apheleia?
-;; (use-package clang-format+
-;;   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
 
 (use-package evil-nerd-commenter
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
@@ -373,46 +367,8 @@
 ;;   :config
 ;;   (global-kkp-mode 1))
 
+
+;; TODO(BK): try incorporating this
+;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
 ;; (use-package clang-format+
 ;;   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
-
-
-
-;; (use-package combobulate
-;;   :vc (:url "https://github.com/mickeynp/combobulate"
-;;             :branch "master")
-;;   ;; :hook ((python-ts-mode . combobulate-mode)
-;;   ;;        (c++-ts-mode . combobulate-mode)
-;;   ;;        (c-ts-mode . combobulate-mode)
-;;   ;;        (js-ts-mode . combobulate-mode)
-;;   ;;        (html-ts-mode . combobulate-mode)
-;;   ;;        (css-ts-mode . combobulate-mode)
-;;   ;;        (yaml-ts-mode . combobulate-mode)
-;;   ;;        (typescript-ts-mode . combobulate-mode)
-;;   ;;        (json-ts-mode . combobulate-mode))
-
-;;   ;; Optional: Bind a key to open the highly useful Combobulate transient menu
-;;   :bind (:map combobulate-key-map
-;;               ("C-c m" . combobulate))
-;;   :config
-;;   ;; Put any specific custom variables or adjustments here
-;;   )
-
-
-;; (use-package combobulate
-;;   :custom
-;;   ;; You can customize Combobulate's key prefix here.
-;;   ;; Note that you may have to restart Emacs for this to take effect!
-;;   (combobulate-key-prefix "C-c m")
-;;   :hook ((prog-mode . combobulate-mode))
-;;   ;; Amend this to the directory where you keep Combobulate's source
-;;   ;; code.
-;;   :load-path ("path-to-git-checkout-of-combobulate"))
-
-
-;; (use-package combobulate
-;;   :vc (:url "https://github.com/mickeynp/combobulate" :rev "master")
-;;   :hook ((python-ts-mode . combobulate-mode)
-;;          (js-ts-mode . combobulate-mode)
-;;          (c++-ts-mode . combobulate-mode)
-;;          (typescript-ts-mode . combobulate-mode)))
