@@ -3,17 +3,16 @@
 ;;; Code:
 
 
-;; TODO: split into multiple files like purcell?
+;; TODO: add org-mode stuff: daily auto-saved and auto-opened notes like at BG
+
+;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
-;; TODO: use treesitter modes? YES set this up TODAY, test with abseill
 ;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
-;; TODO: add org-mode stuff: daily auto-saved and auto-opened notes like at BG
-;; TODO: experiment with combobulate
 
 ;; TODO: diminish and delight + use-package?
-;; TODO: make seperate files for lsp/eglot?
+
 ;; TODO: setup lsp for elisp? setup paredit like old school? setup rust?
 ;; TODO: why don't i get the lispdoc comments and shit about not having a preamble?
 
