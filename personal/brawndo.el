@@ -144,18 +144,17 @@
 ;;   :custom (combobulate-key-prefix "C-c m")
 ;;   :hook ((prog-mode . combobulate-mode)))
 
-
-
 (use-package evil-nerd-commenter
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
 (use-package forge
-  :init
-  (setq forge-owned-accounts '(("brawndology" . nil)
-                               ;; ("Brandon-Kmetz-NS" . nil)
-                               ;; ("brawndo" . nil)
-                               )
-        auth-sources '("~/.authinfo")))
+  :custom
+  (forge-owned-accounts '(("brawndology" . nil)
+                          ;; ("Brandon-Kmetz-NS" . nil)
+                          ;; ("brawndo" . nil)
+                          ))
+
+  (auth-sources '("~/.authinfo")))
 
 ;; TODO: this should use C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
