@@ -312,16 +312,14 @@
 
 ;; NOTE(BK): install buildifer w/ go, put ~/go/bin on path and you're done
 (use-package bazel
-  :config
-  (setq bazel-buildifier-before-save t)
-  (add-to-list 'auto-mode-alist '("\\.\\(BUILD\\)\\'" . bazel-mode)))
+  :custom (bazel-buildifier-before-save t)
+  :config (add-to-list 'auto-mode-alist '("\\.\\(BUILD\\)\\'" . bazel-mode)))
 
 ;; NOTE(BK): this provides a bit more featureful experience than projectile
 ;; NOTE(BK): this also SEEMS to be confused by conan 2 monorepos, but that's okay
 ;; bc that feature is bleeding edge and can probably be ignored (for now...)
 (use-package cmake-integration
-  :vc (:url "https://github.com/darcamo/cmake-integration.git"
-	    :rev :newest))
+  :vc (:url "https://github.com/darcamo/cmake-integration.git" :rev :newest))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Cruft
