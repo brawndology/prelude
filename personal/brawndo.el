@@ -1,4 +1,6 @@
-;;; -*- lexical-binding: t -*-
+;;; brawndo.el --- Personal emacs devenv configuration -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
