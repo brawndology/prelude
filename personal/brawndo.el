@@ -151,12 +151,10 @@
 
 (use-package forge
   :custom
-  (forge-owned-accounts '(("brawndology" . nil)
-                          ;; ("Brandon-Kmetz-NS" . nil)
-                          ;; ("brawndo" . nil)
-                          ))
-
-  (auth-sources '("~/.authinfo")))
+  (auth-sources '("~/.authinfo"))
+  (forge-owned-accounts
+   '(("brawndology" . nil)
+     ("brawndo" . nil))))
 
 ;; FIXME: these require C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
