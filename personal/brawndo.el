@@ -333,9 +333,6 @@
 ;;
 ;; (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
 
-
-
-
 ;; (use-package flymake
 ;;   :init (setq flymake-margin-indicator-position 'right-margin))
 
@@ -377,5 +374,6 @@
 
 ;; TODO(BK): try incorporating this
 ;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
+
 ;; (use-package clang-format+
 ;;   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
