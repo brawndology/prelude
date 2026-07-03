@@ -212,7 +212,7 @@
   )
 
 ;; (use-package highlight-doxygen
-;;   ;;:custom (highlight-doxygen-triple-slash-comment-regexp "/\\\\{3,\\\\}")
+;;   :custom (highlight-doxygen-triple-slash-comment-regexp "/\\\\{3,\\\\}")
 ;;   :config (highlight-doxygen-global-mode 1))
 
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
