@@ -59,14 +59,16 @@
 
 (use-package compile-angel
   :demand t
-  :config
+  :custom
+  (compile-angel-verbose t)
+  (compile-angel-on-load-mode nil)
 
-  (setq compile-angel-verbose t)
+  :config
   (push "/init.el" compile-angel-excluded-files)
   (push "/early-init.el" compile-angel-excluded-files)
-  ;; (compile-angel-on-load-mode 1)
 
-  :hook (emacs-lisp-mode . compile-angel-on-save-local-mode))
+  :hook
+  (emacs-lisp-mode . compile-angel-on-save-local-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UI
