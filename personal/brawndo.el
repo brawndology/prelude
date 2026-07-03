@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+
+;; TODO: split into multiple files like purcell?
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
