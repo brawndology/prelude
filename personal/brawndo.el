@@ -160,7 +160,7 @@
 ;; context is that you have a local repo that isn't (yet) pushed upstream
 
 (use-package ghub
-  :init
+  :config
 
   ;; FIXME: still need to use C-x g M or magit-remote-add after both of these
 
