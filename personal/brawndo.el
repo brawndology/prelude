@@ -107,8 +107,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package flycheck
-  :init
-  (setq global-flycheck-mode nil)
+  :custom
+  (global-flycheck-mode nil)
+  (flycheck-gcc-language-standard "c++26")
+  (flycheck-clang-language-standard "c++26")
+
   ;; ;; (setq flycheck-highlighting-mode nil)
   ;; (setq-default flycheck-indication-mode 'left-margin)
   ;; :hook(flycheck-mode . flycheck-set-indication-mode)
