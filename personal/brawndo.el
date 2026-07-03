@@ -84,7 +84,7 @@
 
 (use-package vterm
   :ensure t
-  :bind ("C-x m" . vterm)) ;; because eshell sucks!
+  :bind ("C-x m" . vterm))
 
 (use-package helm
   :init (setq helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
