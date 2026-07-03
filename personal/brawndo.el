@@ -319,7 +319,8 @@
 ;; NOTE(BK): this also SEEMS to be confused by conan 2 monorepos, but that's okay
 ;; bc that feature is bleeding edge and can probably be ignored (for now...)
 (use-package cmake-integration
-  :vc (:url "https://github.com/darcamo/cmake-integration.git" :rev :newest))
+  :vc (:url "https://github.com/darcamo/cmake-integration.git" :rev :newest)
+  :bind ("C-c m" . cmake-integration-transient))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Cruft
