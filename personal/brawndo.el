@@ -214,9 +214,9 @@
   ;;(add-to-list #'yas-snippet-dirs "snippets")
   (yas-reload-all)
 
-  :bind (:map yas-minor-mode-map
-              ("<tab>" . nil)
-              ("C-'"   . yas-expand))
+  ;; :bind (:map yas-minor-mode-map
+  ;;             ("<tab>" . nil)
+  ;;             ("C-'"   . yas-expand))
   )
 
 ;; (use-package highlight-doxygen
