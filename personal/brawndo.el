@@ -166,12 +166,12 @@
 
   ;; FIXME: still need to use C-x g M or magit-remote-add after both of these
 
-  (defun create-upstream-repo (repo)
+  (defun brawndo/create-upstream-repo (repo)
     "Create empty repo with name REPO on GitHub"
     (interactive "sEnter repo name: ") ;; TODO: use read-string instead?
     (ghub-post "/user/repos" `((name . ,repo))))
 
-  (defun smoopy ()
+  (defun brawndo/smoopy ()
     "THIS SPACE FOR RENT!"
     (interactive)
     (when-let ((git-root (locate-dominating-file default-directory ".git"))
