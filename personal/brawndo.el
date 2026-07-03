@@ -254,32 +254,28 @@
   :bind (:map lsp-ui-mode-map
               ("C-c C-l w" . helm-lsp-workspace-symbol)
               ("C-c C-l g" . lsp-find-definition))
-  :config
-  (setq lsp-ui-doc-enable nil
-        lsp-ui-doc-header t
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-border (face-foreground 'default)
-        lsp-ui-sideline-show-code-actions t
-        lsp-ui-sideline-delay 0.05)
+  :custom
+  (lsp-ui-doc-enable nil)
+  (lsp-ui-doc-header t)
+  (lsp-ui-doc-include-signature t)
+  (lsp-ui-doc-border (face-foreground 'default))
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-delay 0.05)
 
-  (setq lsp-ui-sideline-enable t
-        lsp-ui-sideline-update-mode 'line
-        lsp-ui-sideline-show-code-actions t
-        lsp-ui-sideline-show-hover t
-        lsp-ui-sideline-ignore-duplicate t
-
-        lsp-ui-sideline-show-code-actions t
-        lsp-ui-sideline-delay 0.05
-
-        lsp-ui-doc-enable t ; nil
-        lsp-ui-doc-border (face-foreground 'default)
-        lsp-ui-doc-header t
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-position 'at-point
-
-        lsp-ui-imenu-enable t
-        lsp-eldoc-enable-hover nil)
-  )
+  (lsp-ui-sideline-enable t)
+  (lsp-ui-sideline-update-mode 'line)
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-sideline-ignore-duplicate t)
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-delay 0.05)
+  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-border (face-foreground 'default))
+  (lsp-ui-doc-header t)
+  (lsp-ui-doc-include-signature t)
+  (lsp-ui-doc-position 'at-point)
+  (lsp-ui-imenu-enable t)
+  (lsp-eldoc-enable-hover nil))
 
 ;; (use-package lsp-sonarlint
 ;;   :custom
