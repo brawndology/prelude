@@ -326,14 +326,6 @@
 ;; Cruft
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;; (defun brawndo-pop-to-compilation-buffer (buffer _why)
-;;   "Pop to `*compilation*' BUFFER as part of `compilation-finish-functions'."
-;;   (when (string-match-p "\\`\\*compilation\\*\\'" (buffer-name buffer))
-;;     (pop-to-buffer buffer)))
-;;
-;; (add-to-list 'compilation-finish-functions #'brawndo-pop-to-compilation-buffer)
-
 ;; (use-package flymake
 ;;   :init (setq flymake-margin-indicator-position 'right-margin))
 
@@ -364,17 +356,9 @@
 ;;   :custom
 ;;   (sideline-backends-right '(sideline-eglot
 ;;                              ;;sideline-flymake
-
 ;;                              )))
 
 ;; (use-package kkp
 ;;   :ensure t
 ;;   :config
 ;;   (global-kkp-mode 1))
-
-
-;; TODO(BK): try incorporating this
-;; https://stackoverflow.com/questions/39894233/extract-emacs-c-style-options-from-clang-format-style
-
-;; (use-package clang-format+
-;;   :hook (c-mode-common . clang-format+-mode) ) ;; this works just fine
