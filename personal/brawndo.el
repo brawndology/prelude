@@ -87,7 +87,7 @@
   :bind ("C-x m" . vterm))
 
 (use-package helm
-  :init (setq helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
+  :custom (helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
 
 (use-package shackle
   :ensure t
