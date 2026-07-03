@@ -12,7 +12,7 @@
 ;; TODO: FIX YASNIPPET CONFIG
 ;; TODO consider perspective.el
 
-;; NOTE: use-package decls can be nested for proper load order!
+;; NOTE: use-package decls can be nested in addition to specifying :after
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
 
