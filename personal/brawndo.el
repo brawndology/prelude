@@ -4,20 +4,14 @@
 
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
-
-;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
-
 ;; TODO: setup lsp and paredit for elisp
-
 ;; TODO: FIX YASNIPPET CONFIG
 ;; TODO consider perspective.el
 
 ;; NOTE: use-package decls can be nested in addition to specifying :after
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
-
-;; TODO job cuopt -- series of lin constraints, build graph as a node and system of constraints is edges so you also use int value constraints 1,2,3 drones
-;; graph of depo depos have supplies have trucks moving } asset effectiveness, not kills per hour
+;; NOTE: need to wait until v31.1 for c-ts-mode to do doxygen properly..
 
 ;;------------------------------------------------------------------------------
 ;; Bootstrapping
