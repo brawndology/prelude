@@ -11,7 +11,7 @@
 ;; TODO: setup lsp and paredit for elisp
 
 ;; TODO: FIX YASNIPPET CONFIG
-;; TODO consider perspective.el? consider adding monky for hg support?
+;; TODO consider perspective.el
 
 ;; NOTE: use-package decls can be nested for proper load order!
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
@@ -197,6 +197,9 @@
 
 (use-package git-gutter
   :hook (prog-mode . git-gutter-mode ))
+
+(use-package monky ;; magit, but for mercurial
+  :custom (monky-process-type 'cmdserver))
 
 (use-package yasnippet-snippets
   :after yasnippet)
