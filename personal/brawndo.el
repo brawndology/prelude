@@ -141,6 +141,8 @@
   (global-treesit-auto-mode))
 
 ;; FIXME: watch tutorial vid and see what's up with prefix...doesn't seem to be working...
+;; NOTE: enabling this can make unexpected things occur...like emacs expecting
+;; uninstalled grammars to actually be there!
 ;; (use-package combobulate
 ;;   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
 ;;   :custom (combobulate-key-prefix "C-c m")
