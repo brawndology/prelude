@@ -161,14 +161,11 @@
 
   (auth-sources '("~/.authinfo")))
 
-;; TODO: this should use C-x g M a after ghub-post to set the remote since the
+;; FIXME: these require C-x g M a after ghub-post to set the remote since the
 ;; context is that you have a local repo that isn't (yet) pushed upstream
 
 (use-package ghub
   :config
-
-  ;; FIXME: still need to use C-x g M or magit-remote-add after both of these
-
   (defun brawndo/create-upstream-repo (repo)
     "Create empty repo with name REPO on GitHub"
     (interactive "sEnter repo name: ") ;; TODO: use read-string instead?
