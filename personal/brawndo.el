@@ -108,11 +108,16 @@
 ;;------------------------------------------------------------------------------
 
 (use-package org-journal
+  :init
+  (setq org-journal-prefix-key "C-c j ") ;; must be set before load
+
   :custom
   (org-journal-dir "~/org/journal/")
   (org-journal-date-format "%A, %d %B %Y")
-  :init (setq org-journal-prefix-key "C-c j ")) ;; must be set before load
+  (org-journal-enable-agenda-integration t)
 
+  :bind
+  ("C-c j" . org-journal-open-current-journal-file))
 
 ;;------------------------------------------------------------------------------
 ;; Development
