@@ -128,6 +128,8 @@
 ;;
 ;; ..on a clean install with combobulate (which MAY need to be nested..) treesit-auto
 ;; fails spectacularly e.g can't find python treesitter
+
+;; FIXME do above because treesit-auto doesn't know about doxygen treesit grammar!
 (use-package treesit-auto
   :custom
   (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
@@ -140,10 +142,10 @@
   (treesit-auto-add-to-auto-mode-alist)
   (global-treesit-auto-mode))
 
-;; FIXME: watch tutorial vid and see what's up with prefix...doesn't seem to be working...
+
 ;; NOTE: enabling this can make unexpected things occur...like emacs expecting
 ;; uninstalled grammars to actually be there!
-
+;;
 ;; (use-package combobulate
 ;;   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
 ;;   :custom (combobulate-key-prefix "C-c m")
