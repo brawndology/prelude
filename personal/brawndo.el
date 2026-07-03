@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
-;; TODO: add org-mode stuff: daily auto-saved and auto-opened notes like at BG
-
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
