@@ -92,15 +92,15 @@
 (use-package shackle
   :ensure t
   :hook (after-init . shackle-mode)
-  :config
-  (setq shackle-default-size 0.4
-        shackle-rules
-        `(
-          ("\\*eldoc.*" :align t :select t :regexp t)
-          ("\\*compilation.*" :align right :select t :regexp t :size 0.5)
-          ;; ("\\*Flymake diagnostics.*" :align t :select t :regexp t)
-          ;; TODO: have this handle help window select as well?
-          )))
+  :custom
+  (shackle-default-size 0.4)
+  (shackle-rules
+   `(
+     ("\\*eldoc.*" :align t :select t :regexp t)
+     ("\\*compilation.*" :align right :select t :regexp t :size 0.5)
+     ;; ("\\*Flymake diagnostics.*" :align t :select t :regexp t)
+     ;; TODO: have this handle help window select as well?
+     )))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Development
