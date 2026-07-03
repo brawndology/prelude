@@ -193,17 +193,17 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
-  :config
+  :custom
   (yas-global-mode t)
+  ;;(yas-prompt-functions '(yas-ido-prompt)) ;; TODO: what about this? i don't acutally use ido...
 
-  ;;(define-key yas-minor-mode-map (kbd "<tab>") nil)
-  ;;(define-key yas-minor-mode-map (kbd "C-'") #'yas-expand)
-
+  :config
   ;;(add-to-list #'yas-snippet-dirs "snippets")
   (yas-reload-all)
 
-  ;; TODO: what about this? i don't acutally use ido...
-  ;;(setq yas-prompt-functions '(yas-ido-prompt))
+  :bind (:map yas-minor-mode-map
+              ("<tab>" . nil)
+              ("C-'"   . yas-expand))
   )
 
 ;; (use-package highlight-doxygen
