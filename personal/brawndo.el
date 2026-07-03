@@ -125,7 +125,10 @@
 ;; fails spectacularly e.g can't find python treesitter
 (use-package treesit-auto
   :ensure t
-  :custom (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
+  :custom
+  (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
+  (treesit-font-lock-level 4)
+
   :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode)
          ("\\.rs\\'" . rust-ts-mode))
