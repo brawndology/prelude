@@ -4,7 +4,6 @@
 
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
-;; TODO: remove ensures? we ALWAYS ensure...so its redundant..
 
 ;; TODO: doxygen highlighting stuff, want "///" to highlight, not just "/// " (w/ space)
 
@@ -81,14 +80,12 @@
   :config (mood-line-mode)) ;; NOTE consider using delight in the future?
 
 (use-package vterm
-  :ensure t
   :bind ("C-x m" . vterm))
 
 (use-package helm
   :custom (helm-move-to-line-cycle-in-source nil)) ;; no C-o to move to next source
 
 (use-package shackle
-  :ensure t
   :hook (after-init . shackle-mode)
   :custom
   (shackle-default-size 0.4)
@@ -138,7 +135,6 @@
 ;; ..on a clean install with combobulate (which MAY need to be nested..) treesit-auto
 ;; fails spectacularly e.g can't find python treesitter
 (use-package treesit-auto
-  :ensure t
   :custom
   (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
   (treesit-font-lock-level 4)
@@ -376,7 +372,6 @@
 ;; TODO see if this will ever work..does something weird with M-BKSPC....
 
 ;; (use-package kkp
-;;   :ensure t
 ;;   :hook (tty-setup . global-kkp-mode)
 ;;   :config
 ;;   ;; (setq kkp-alt-modifier 'alt) ;; use this if you want to map the Alt keyboard modifier to Alt in Emacs (and not to Meta)
