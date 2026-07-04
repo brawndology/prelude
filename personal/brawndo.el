@@ -99,14 +99,15 @@
 
 (use-package org-journal
   :init
+  ;; TODO: change this? need to be able to open file (even if doesn't) exist
   (setq org-journal-prefix-key "C-c j ") ;; must be set before load
 
   :custom
   ;;(org-journal-enable-agenda-integration t)
-  (org-agenda-files '("~/org/journal")) ;; TODO recursively? probably.... also make stanza for this
+  (org-agenda-files '("~/org/journal")) ;; TODO recursively? probably.... also make stanza for this...also use add-to-list?
 
   (org-journal-date-format "%A, %d %B %Y")
-  (org-journal-file-format "%Y%m%d.org") ;; TODO might not need this, check results when this is deferred
+  (org-journal-file-format "%Y%m%d.org")
   (org-journal-dir "~/org/journal/")
 
   :bind
