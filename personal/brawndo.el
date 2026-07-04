@@ -51,7 +51,6 @@
   :hook (after-init . gcmh-mode)) ;; for startup performance
 
 (use-package compile-angel
-  :demand t
   :custom
   (compile-angel-verbose t)
   (compile-angel-on-load-mode nil)
