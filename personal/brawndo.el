@@ -113,7 +113,7 @@
   (org-journal-dir "~/org/journal/")
 
   :bind
-  ("C-c j" . org-journal-new-entry))
+  ("C-c j" . org-journal-new-entry)) ;; TODO: change this? need to be able to open file (even if doesn't) exist
 
 ;;------------------------------------------------------------------------------
 ;; Development
