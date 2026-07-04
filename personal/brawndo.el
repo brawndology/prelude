@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; TODO: setup org-gcal to synch org stuff to phone
+
 ;; TODO: TEST DEFER! is there really a reason to always demand when daemon?
+;; defer definitely helps shorten startup-time when applied to org-journal..
 
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
