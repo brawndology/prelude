@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; TODO: consider defering? is there really a reason to always demand when daemon?
+;; TODO: TEST DEFER! is there really a reason to always demand when daemon?
 
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
