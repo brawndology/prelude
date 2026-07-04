@@ -3,10 +3,6 @@
 ;;; Code:
 
 ;; TODO: setup org-gcal to synch org stuff to phone
-
-;; TODO: TEST DEFER! is there really a reason to always demand when daemon?
-;; defer definitely helps shorten startup-time when applied to org-journal..
-
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: setup lsp and paredit for elisp
@@ -32,7 +28,7 @@
   (help-window-select t)
   (warning-minimum-level :emergency)
   (use-package-always-ensure t)
-  (use-package-always-demand (when (daemonp) t))
+  ;;  (use-package-always-demand (when (daemonp) t))
 
   (prelude-lsp-client 'lsp-mode) ;; TODO does this need to be moved to prelude-custom?
   (projectile-enable-cmake-presets t) ;; TODO maybe move this to projectile stanza?
