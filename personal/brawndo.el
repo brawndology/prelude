@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+;; TODO: consider defering? is there really a reason to always demand when daemon?
+
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: setup lsp and paredit for elisp
@@ -100,12 +102,15 @@
   (setq org-journal-prefix-key "C-c j ") ;; must be set before load
 
   :custom
-  (org-journal-dir "~/org/journal/")
+  ;;(org-journal-enable-agenda-integration t)
+  (org-agenda-files '("~/org/journal")) ;; TODO recursively? probably.... also make stanza for this
+
   (org-journal-date-format "%A, %d %B %Y")
-  (org-journal-enable-agenda-integration t)
+  (org-journal-file-format "%Y%m%d.org") ;; TODO might not need this, check results when this is deferred
+  (org-journal-dir "~/org/journal/")
 
   :bind
-  ("C-c j" . org-journal-open-current-journal-file))
+  ("C-c j" . org-journal-new-entry))
 
 ;;------------------------------------------------------------------------------
 ;; Development
