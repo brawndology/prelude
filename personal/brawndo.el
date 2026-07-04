@@ -23,20 +23,20 @@
   (require 'use-package))
 
 (use-package emacs
-  :init (setq recenter-positions '(top middle bottom)
-              load-prefer-newer t
-              help-window-select t
-              warning-minimum-level :emergency
-              use-package-always-ensure t
-              use-package-always-demand (when (daemonp) t)
-
-              prelude-lsp-client 'lsp-mode ;; TODO does this need to be moved to prelude-custom?
-              projectile-enable-cmake-presets t ;; TODO maybe move this to projectile stanza?
-
-              ;;c-doc-comment-style 'doxygen ;; TODO work on this later, also might not work with c-ts-mode!
-              ;;flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode)
-              )
   :custom
+  (recenter-positions '(top middle bottom))
+  (load-prefer-newer t)
+  (help-window-select t)
+  (warning-minimum-level :emergency)
+  (use-package-always-ensure t)
+  (use-package-always-demand (when (daemonp) t))
+
+  (prelude-lsp-client 'lsp-mode) ;; TODO does this need to be moved to prelude-custom?
+  (projectile-enable-cmake-presets t) ;; TODO maybe move this to projectile stanza?
+
+  ;; (c-doc-comment-style 'doxygen) ;; TODO work on this later, also might not work with c-ts-mode!
+  ;; (flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode))
+
   (display-battery-mode t)
   (menu-bar-mode nil)
   (display-time-mode t)
