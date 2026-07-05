@@ -71,7 +71,7 @@
   (line-number-current-line ((t (:inherit line-number :background "#333333")))))
 
 (use-package mood-line
-  :config (mood-line-mode)) ;; NOTE consider using delight in the future?
+  :config (mood-line-mode)) ;; NOTE use-package delight?
 
 (use-package vterm
   :bind ("C-x m" . vterm))
