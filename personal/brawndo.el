@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+;; TODO: install in ~/.config/emacs ?
+
 ;; TODO: setup org-gcal to synch org stuff to phone
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
