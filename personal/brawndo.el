@@ -99,19 +99,61 @@
 
 (use-package org-journal
   :init
-  ;; TODO: change this? need to be able to open file (even if doesn't) exist
   (setq org-journal-prefix-key "C-c j ") ;; must be set before load
 
   :custom
-  ;;(org-journal-enable-agenda-integration t)
-  (org-agenda-files '("~/org/journal")) ;; TODO recursively? probably.... also make stanza for this...also use add-to-list?
-
   (org-journal-date-format "%A, %d %B %Y")
   (org-journal-file-format "%Y%m%d.org")
   (org-journal-dir "~/org/journal/")
+  ;; (org-agenda-files '("~/org/journal"))
+  ;; (org-journal-enable-agenda-integration t)
 
   :bind
   ("C-c j" . org-journal-new-entry)) ;; TODO: change this? need to be able to open file (even if doesn't) exist
+
+(use-package org-gcal
+  :after org-journal
+  :init(setq brawndo/gcal-secret-file ;; FIXME: this file should live in ~/.config/emacs
+             "~/Downloads/gcal_secret.json")
+  :preface
+  (defun brawndo/get-gcal-json-value (filepath key)
+    (with-temp-buffer
+      (insert-file-contents filepath)
+      (let* ((data (json-parse-buffer :object-type 'hash-table))
+             (root (or (gethash "installed" data)
+                       (gethash "web" data))))
+        (if root
+            (gethash key root)
+          (error "Invlid Google credentials format: missing 'installed' or 'web' layer")))))
+
+  :custom
+  (org-gcal-client-id
+   (brawndo/get-gcal-json-value brawndo/gcal-secret-file "client_id"))
+
+  (org-gcal-client-secret
+   (brawndo/get-gcal-json-value brawndo/gcal-secret-file "client_secret"))
+
+  (org-gcal-fetch-file-alist
+   '(("brandon.kmetz@gmail.com" .  "~/org/gcal.org")
+     ;; ("another-mail@gmail.com" .  "~/org/task.org")
+     ))
+  )
+
+(use-package org-agenda
+  :ensure nil
+  :after org-journal
+
+  :config
+  (add-to-list 'org-agenda-files org-directory)
+  (add-to-list 'org-agenda-files org-journal-dir)
+
+  ;;:custom
+  ;;(org-agenda-files (list org-journal-dir))
+  ;;(org-agenda-files (directory-files-recursively "~/org/" "\\.org$")) ;; XXX this adds files, not dirs!
+
+  :preface (defun brawndo/org-agenda-hook () (org-gcal-fetch))
+  :hook (org-agenda-mode . brawndo/org-agenda-hook )
+  )
 
 ;;------------------------------------------------------------------------------
 ;; Development
