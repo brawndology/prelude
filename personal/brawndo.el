@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-;; TODO: install in ~/.config/emacs ?
+;; TODO: figure out package order for org stuff so that we can defer
+;; TODO: configure prelude module for ai stuff?
 
-;; TODO: setup org-gcal to synch org stuff to phone
 ;; TODO: split into multiple files like purcell? / seperate files for lsp/eglot
 ;; TODO: mess with prelude forge stuff later...see how it compares to my tools
 ;; TODO: setup lsp and paredit for elisp
