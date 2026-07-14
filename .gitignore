@@ -33,3 +33,4 @@ var/
 gotools/
 eln-cache/
 forge-database.sqlite
+/secrets/
