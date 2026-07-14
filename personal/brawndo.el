@@ -104,19 +104,19 @@
   :custom
   (org-journal-date-format "%A, %d %B %Y")
   (org-journal-file-format "%Y%m%d.org")
-  (org-journal-dir "~/org/journal/")
-  ;; (org-agenda-files '("~/org/journal"))
-  ;; (org-journal-enable-agenda-integration t)
+  (org-journal-dir (file-name-concat org-directory "journal"))
+  ;; (org-journal-dir "~/org/journal/")
+  ;; (org-journal-enable-agenda-integration t) ;; this adds FILES
+  ;; (org-agenda-files '(org-journal-dir)) ;; this adds a DIR
 
   :bind
   ("C-c j" . org-journal-new-entry)) ;; TODO: change this? need to be able to open file (even if doesn't) exist
 
 (use-package org-gcal
   :after org-journal
-  :init(setq brawndo/gcal-secret-file ;; FIXME: this file should live in ~/.config/emacs
-             "~/Downloads/gcal_secret.json")
+
   :preface
-  (defun brawndo/get-gcal-json-value (filepath key)
+  (defun brawndo/get-org-gcal-credential (filepath key)
     (with-temp-buffer
       (insert-file-contents filepath)
       (let* ((data (json-parse-buffer :object-type 'hash-table))
@@ -126,12 +126,17 @@
             (gethash key root)
           (error "Invlid Google credentials format: missing 'installed' or 'web' layer")))))
 
+  :init
+  (setq brawndo/org-gcal-secret
+        (file-name-concat user-emacs-directory "secrets/org-gcal.json"))
+  (setq plstore-cache-passphrase-for-symmetric-encryption t)
+
   :custom
   (org-gcal-client-id
-   (brawndo/get-gcal-json-value brawndo/gcal-secret-file "client_id"))
+   (brawndo/get-org-gcal-credential brawndo/org-gcal-secret "client_id"))
 
   (org-gcal-client-secret
-   (brawndo/get-gcal-json-value brawndo/gcal-secret-file "client_secret"))
+   (brawndo/get-org-gcal-credential brawndo/org-gcal-secret "client_secret"))
 
   (org-gcal-fetch-file-alist
    '(("brandon.kmetz@gmail.com" .  "~/org/gcal.org")
