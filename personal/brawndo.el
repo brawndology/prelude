@@ -124,9 +124,13 @@
           (error "Invlid Google credentials format: missing 'installed' or 'web' layer")))))
 
   :init
-  (setq plstore-cache-passphrase-for-symmetric-encryption t)
   (setq brawndo/org-gcal-secret
         (file-name-concat user-emacs-directory "secrets/org-gcal.json"))
+
+  ;; TODO: add this to preload?
+  (require 'plstore)
+  (add-to-list 'plstore-encrypt-to "1F51B10269339B9B")
+  (setq epg-pinentry-mode 'loopback)
 
   :custom
   (org-gcal-client-id
