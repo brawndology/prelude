@@ -135,7 +135,7 @@
   (org-gcal-client-secret
    (brawndo/get-org-gcal-credential brawndo/org-gcal-secret "client_secret"))
 
-  (org-gcal-fetch-file-alist '(("brandon.kmetz@gmail.com" .  "~/org/gcal.org"))))
+  (org-gcal-fetch-file-alist '(("brandon.kmetz@gmail.com" . "~/org/gcal.org"))))
 
 (use-package org-agenda
   :ensure nil
