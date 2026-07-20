@@ -45,9 +45,6 @@
 
   :hook (prog-mode . display-line-numbers-mode))
 
-(use-package gcmh
-  :hook (after-init . gcmh-mode)) ;; for startup performance
-
 (use-package compile-angel
   :custom
   (compile-angel-verbose t)
@@ -424,3 +421,7 @@
 ;;   ;; subprocesses" in the README.
 ;;   ;; (setq kkp-restore-legacy-keys-around-subprocesses t)
 ;;   )
+
+
+;; (use-package gcmh
+;;   :hook (after-init . gcmh-mode)) ;; for startup performance
