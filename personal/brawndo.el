@@ -1,4 +1,4 @@
-;;; brawndo.el --- Personal emacs devenv configuration -*- lexical-binding: t -*-
+;;; brawndo.el --- it has what developers crave -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
