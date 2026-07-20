@@ -127,9 +127,9 @@
           (error "Invlid Google credentials format: missing 'installed' or 'web' layer")))))
 
   :init
+  (setq plstore-cache-passphrase-for-symmetric-encryption t)
   (setq brawndo/org-gcal-secret
         (file-name-concat user-emacs-directory "secrets/org-gcal.json"))
-  (setq plstore-cache-passphrase-for-symmetric-encryption t)
 
   :custom
   (org-gcal-client-id
@@ -138,11 +138,7 @@
   (org-gcal-client-secret
    (brawndo/get-org-gcal-credential brawndo/org-gcal-secret "client_secret"))
 
-  (org-gcal-fetch-file-alist
-   '(("brandon.kmetz@gmail.com" .  "~/org/gcal.org")
-     ;; ("another-mail@gmail.com" .  "~/org/task.org")
-     ))
-  )
+  (org-gcal-fetch-file-alist '(("brandon.kmetz@gmail.com" .  "~/org/gcal.org"))))
 
 (use-package org-agenda
   :ensure nil
@@ -157,8 +153,7 @@
   ;;(org-agenda-files (directory-files-recursively "~/org/" "\\.org$")) ;; XXX this adds files, not dirs!
 
   :preface (defun brawndo/org-agenda-hook () (org-gcal-fetch))
-  :hook (org-agenda-mode . brawndo/org-agenda-hook )
-  )
+  :hook (org-agenda-mode . brawndo/org-agenda-hook ))
 
 ;;------------------------------------------------------------------------------
 ;; Development
