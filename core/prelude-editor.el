@@ -206,20 +206,46 @@
         ispell-extra-args '("--sug-mode=ultra")))
 
 (defun prelude-enable-flyspell ()
-  "Enable command `flyspell-mode' if `prelude-flyspell' is not nil."
-  (when (and prelude-flyspell (executable-find ispell-program-name))
+  "Enable command `flyspell-mode' when Prelude's spell checker is Flyspell.
+Does nothing when `prelude-spell-checker' is set to something else
+\(e.g. `jinx', which is a single global mode enabled below)."
+  (when (and prelude-flyspell
+             (eq prelude-spell-checker 'flyspell)
+             (executable-find ispell-program-name))
     (flyspell-mode +1)))
+
+;; jinx is an enchant-based spell checker; unlike flyspell it's a
+;; single global mode that checks only the visible part of the buffer,
+;; so it's enabled once here rather than per-buffer.  The enable is
+;; guarded so a missing libenchant only warns instead of aborting startup.
+(when (and prelude-flyspell (eq prelude-spell-checker 'jinx))
+  (prelude-require-package 'jinx)
+  (with-demoted-errors "Prelude: could not enable jinx: %S"
+    (global-jinx-mode +1)))
 
 (defun prelude-cleanup-maybe ()
   "Invoke `whitespace-cleanup' if `prelude-clean-whitespace-on-save' is not nil."
   (when prelude-clean-whitespace-on-save
     (whitespace-cleanup)))
 
+;; ws-butler trims trailing whitespace on save, but only on the lines
+;; you actually edited, so saving a file in someone else's project
+;; doesn't produce noisy whitespace-only diffs.  Only pull it in when
+;; it's the chosen cleanup style.
+(when (and prelude-whitespace
+           prelude-clean-whitespace-on-save
+           (eq prelude-whitespace-cleanup-style 'ws-butler))
+  (prelude-require-package 'ws-butler)
+  (require 'ws-butler nil t))
+
 (defun prelude-enable-whitespace ()
   "Enable `whitespace-mode' if `prelude-whitespace' is not nil."
   (when prelude-whitespace
     ;; keep the whitespace decent all the time (in this buffer)
-    (add-hook 'before-save-hook 'prelude-cleanup-maybe nil t)
+    (when prelude-clean-whitespace-on-save
+      (if (eq prelude-whitespace-cleanup-style 'ws-butler)
+          (ws-butler-mode +1)
+        (add-hook 'before-save-hook 'prelude-cleanup-maybe nil t)))
     (whitespace-mode +1)))
 
 (add-hook 'text-mode-hook 'prelude-enable-flyspell)

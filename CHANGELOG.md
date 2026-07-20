@@ -6,6 +6,11 @@
 
 ### New features
 
+- Add a welcome screen shown on startup (unless Emacs is launched to open specific files). It points you at the essentials (personal config location, how to enable modules, the user manual) and offers quick access to recent files, known projects and bookmarks, plus a rotating tip. Reopen it any time with `M-x prelude-welcome`, or turn it off with `(setq prelude-welcome-screen nil)`.
+- Add `prelude-swift` module: Swift support via the tree-sitter powered `swift-ts-mode` and `sourcekit-lsp` (registered with Eglot, since Eglot has no built-in entry for Swift). Starts an LSP session through the usual `prelude-lsp-enable` abstraction.
+- Add `prelude-mistty` module: a terminal based on [MisTTY](https://github.com/szermatt/mistty), a pure-elisp shell/comint hybrid on top of `term.el` (no native module to compile). Rebinds Prelude's terminal key `C-c t` to `mistty`.
+- Add a `prelude-spell-checker` option to choose between `flyspell` (the default) and [jinx](https://github.com/minad/jinx), a faster libenchant-based spell checker that only checks the visible part of the buffer. Jinx is installed on demand and enabled as a single global mode; set `(setq prelude-spell-checker 'jinx)` in your personal config to opt in (requires libenchant and a C compiler).
+- Add a `prelude-whitespace-cleanup-style` option to choose how whitespace is cleaned on save: `whitespace-cleanup` (the default, tidies the whole file) or [ws-butler](https://github.com/lewang/ws-butler), which trims only the lines you actually edited so saving a file in someone else's project no longer produces noisy whitespace-only diffs. ws-butler is installed on demand.
 - Add `prelude-ai` module: a thin wrapper around [gptel](https://github.com/karthink/gptel) for LLM-backed chat (Claude, GPT, Gemini, Ollama, etc.). Binds `gptel-menu` to `C-c q`. Backends and API keys are configured in personal config -- see the module documentation for examples.
 - Add `prelude-forge` module: enables [Forge](https://github.com/magit/forge) on top of Magit so you can read and reply to GitHub/GitLab/Gitea pull requests and issues without leaving Emacs.
 - Add `prelude-eglot-booster` module: speeds up Eglot via the [emacs-lsp-booster](https://github.com/blahgeek/emacs-lsp-booster) wrapper. The Emacs side ([eglot-booster](https://github.com/jdtsmith/eglot-booster)) is auto-installed via `package-vc-install` when the booster binary is on `PATH`; otherwise the module no-ops.
@@ -14,6 +19,14 @@
 
 ### Changes
 
+- Add an `early-init.el` that tunes startup: it raises the GC threshold while Emacs loads (restoring a modest value once startup is over), disables the tool bar via frame parameters so the initial frame is never drawn with one, sets `frame-inhibit-implied-resize`, native-compiles packages at install time (`package-native-compile`), and sets a sane `LANG` for GUI Emacs on macOS (which otherwise starts in the `C` locale and breaks spell-checker dictionaries and subprocess sorting).
+- Populate `treesit-language-source-alist` with recipes for the languages Prelude's modules use, so a missing grammar can be installed with `M-x treesit-install-language-grammar` without hunting down repository URLs.
+- Modernize the Eglot event-log setting to prefer `eglot-events-buffer-config` on newer Eglot, falling back to the obsolete `eglot-events-buffer-size` on older versions.
+- Bridge Eglot diagnostics into Flycheck via [flycheck-eglot](https://github.com/flycheck/flycheck-eglot) when `prelude-lsp-client` is `eglot`, so LSP diagnostics show up in Prelude's Flycheck UI instead of only through Flymake. Installed on demand; lsp-mode users are unaffected (lsp-mode has its own Flycheck integration).
+- Add [Embark](https://github.com/oantolin/embark) (and `embark-consult`) to `prelude-vertico`: a keyboard-driven context menu bound to `C-.` (`embark-act`), `C-;` (`embark-dwim`) and `C-h B` (`embark-bindings`), with `embark-export` into editable grep/occur buffers. In Flyspell buffers those keys keep their Flyspell auto-correct meaning; Embark still works in the minibuffer and elsewhere.
+- Enable the `vertico-directory` extension in `prelude-vertico`: `RET` descends into the selected directory, `DEL` deletes a whole path component, and `M-DEL` deletes a word of it.
+- Enable `corfu-history-mode` in `prelude-corfu` so recently chosen completion candidates sort first (persisted across sessions via savehist).
+- Set `consult-narrow-key` to `<` in `prelude-vertico`, so you can narrow consult candidates to a single group (e.g. `< b` for buffers in `consult-buffer`).
 - Tidy up `prelude-common-lisp`: drop stale `slime-autodoc-use-multiline-p` setting (the variable was removed from upstream SLIME; modern autodoc honors `eldoc-echo-area-use-multiline-p`), set `inferior-lisp-program` to `sbcl` so `M-x run-lisp` works without SLIME, and add `slime-quicklisp` to `slime-contribs` for Quicklisp integration.
 
 ### Bugs fixed

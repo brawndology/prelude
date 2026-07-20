@@ -77,9 +77,29 @@ Will only occur if `prelude-whitespace' is also enabled."
   :type 'boolean
   :group 'prelude)
 
+(defcustom prelude-whitespace-cleanup-style 'whitespace-cleanup
+  "How whitespace is cleaned up on save when enabled.
+`whitespace-cleanup' (the default) tidies the whole file, which can
+produce noisy whitespace-only diffs in projects that aren't already
+clean.  `ws-butler' instead trims only the lines you actually edited,
+leaving the rest of the file untouched (installed on demand)."
+  :type '(choice (const :tag "whitespace-cleanup (whole file)" whitespace-cleanup)
+                 (const :tag "ws-butler (edited lines only)" ws-butler))
+  :group 'prelude)
+
 (defcustom prelude-flyspell t
-  "Non-nil values enable Prelude's flyspell support."
+  "Non-nil values enable Prelude's spell checking support."
   :type 'boolean
+  :group 'prelude)
+
+(defcustom prelude-spell-checker 'flyspell
+  "The spell checker to use when `prelude-flyspell' is enabled.
+`flyspell' is the classic built-in checker (it needs an external
+aspell/hunspell binary).  `jinx' is a faster, libenchant-based
+checker that only checks the visible portion of the buffer, but it
+requires libenchant and a C compiler to build its native module."
+  :type '(choice (const :tag "Flyspell (built-in)" flyspell)
+                 (const :tag "Jinx (libenchant)" jinx))
   :group 'prelude)
 
 (defcustom prelude-user-init-file (expand-file-name "personal/"
@@ -115,6 +135,13 @@ Only modes that don't derive from `prog-mode' should be listed here."
 (defcustom prelude-yank-indent-threshold 1000
   "Threshold (# chars) over which indentation does not automatically occur."
   :type 'number
+  :group 'prelude)
+
+(defcustom prelude-welcome-screen t
+  "Non-nil values show Prelude's welcome screen on startup.
+The welcome screen is skipped when Emacs is started with file
+arguments (e.g. `emacs foo.rb')."
+  :type 'boolean
   :group 'prelude)
 
 (defcustom prelude-theme 'zenburn
