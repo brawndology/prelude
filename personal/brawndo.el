@@ -185,6 +185,7 @@
   (treesit-font-lock-level 4)
 
   :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.inl\\'" . c++-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode)
          ("\\.rs\\'" . rust-ts-mode))
   :config
