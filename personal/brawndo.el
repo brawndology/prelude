@@ -224,7 +224,7 @@
   (defun brawndo/smoopy ()
     "THIS SPACE FOR RENT!"
     (interactive)
-    (when-let ((git-root (locate-dominating-file default-directory ".git"))
+    (when-let* ((git-root (locate-dominating-file default-directory ".git"))
                (basename (file-name-nondirectory (directory-file-name git-root))))
       (ghub-post "/user/repos" `((name . ,basename)))
 
