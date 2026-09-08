@@ -14,7 +14,6 @@
 ;; NOTE: use-package decls can be nested in addition to specifying :after
 ;; NOTE: C-o inserts line...interesting....need to remember crux stuff M-o
 ;; NOTE: C-x C-l downcase region....also rember mark popping with C-SPACE
-;; NOTE: need to wait until v31.1 for c-ts-mode to do doxygen properly..
 
 ;;------------------------------------------------------------------------------
 ;; Bootstrapping
@@ -36,6 +35,7 @@
   (projectile-enable-cmake-presets t) ;; TODO maybe move this to projectile stanza?
 
   ;; (c-doc-comment-style 'doxygen) ;; TODO work on this later, also might not work with c-ts-mode!
+  (c-ts-mode-enable-doxygen t)
   ;; (flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode))
 
   (display-battery-mode t)
@@ -180,6 +180,20 @@
 
 ;; FIXME do above because treesit-auto doesn't know about doxygen treesit grammar!
 (use-package treesit-auto
+  :preface
+  (defun brawndo/upgrade-all-treesit-grammars ()
+    "Download and compile the latest versions of all configured Tree-sitter grammars."
+    (interactive)
+    (when (boundp 'treesit-language-source-alist)
+      (dolist (recipe treesit-language-source-alist)
+        (let ((lang (car recipe)))
+          (message "Upgrading Tree-sitter grammar for %s..." lang)
+          (condition-case err
+              ;; The second argument 't' skips confirmation prompts
+              (treesit-install-language-grammar lang t)
+            (error (message "Failed to upgrade %s: %s" lang (error-message-string err))))))
+      (message "All Tree-sitter grammars upgraded!")))
+
   :custom
   (treesit-auto-install 'prompt) ;; t: auto install; 'prompt: ask first; nil: do nothing
   (treesit-font-lock-level 4)
