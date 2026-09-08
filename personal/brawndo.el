@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+;; TODO: see if we can figure out how to get sonarlint working again..
+
 ;; TODO: figure out package order for org stuff so that we can defer
 ;; TODO: configure prelude module for ai stuff?
 
@@ -34,8 +36,6 @@
   (prelude-lsp-client 'lsp-mode) ;; TODO does this need to be moved to prelude-custom?
   (projectile-enable-cmake-presets t) ;; TODO maybe move this to projectile stanza?
 
-  ;; (c-doc-comment-style 'doxygen) ;; TODO work on this later, also might not work with c-ts-mode!
-  (c-ts-mode-enable-doxygen t)
   ;; (flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode))
 
   (display-battery-mode t)
@@ -178,7 +178,6 @@
 ;; ..on a clean install with combobulate (which MAY need to be nested..) treesit-auto
 ;; fails spectacularly e.g can't find python treesitter
 
-;; FIXME do above because treesit-auto doesn't know about doxygen treesit grammar!
 (use-package treesit-auto
   :preface
   (defun brawndo/upgrade-all-treesit-grammars ()
@@ -205,6 +204,22 @@
   :config
   (treesit-auto-add-to-auto-mode-alist)
   (global-treesit-auto-mode))
+
+(use-package c-ts-mode
+  :preface
+  (defun brawndo/doxygen-triple-slash ()
+    "Add regex pattern to font-lock for triple-slash (///) Doxygen line comments."
+    (when (bound-and-true-p c-ts-mode-enable-doxygen)
+      (font-lock-add-keywords
+       nil
+       '(("^\\s-*\\(///.*\\)$" 1 'font-lock-doc-face prepend)))))
+
+  :init
+  (setq c-ts-mode-enable-doxygen t)
+
+  :hook
+  (c-ts-mode . brawndo/doxygen-triple-slash)
+  (c++-ts-mode . brawndo/doxygen-triple-slash))
 
 
 ;; NOTE: enabling this can make unexpected things occur...like emacs expecting
@@ -275,16 +290,13 @@
   ;;             ("C-'"   . yas-expand))
   )
 
-;; (use-package highlight-doxygen
-;;   :custom (highlight-doxygen-triple-slash-comment-regexp "/\\\\{3,\\\\}")
-;;   :config (highlight-doxygen-global-mode 1))
-
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
 ;; https://ianyepan.github.io/posts/emacs-ide/
 ;; https://taingram.org/blog/emacs-lsp-ide.html
 
 (use-package lsp-mode
   :init
+
   ;; (setq lsp-log-io t)
   (setq lsp-clients-clangd-args '("--background-index"
                                   "--clang-tidy"
