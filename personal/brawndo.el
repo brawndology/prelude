@@ -191,6 +191,7 @@
   (treesit-font-lock-level 4)
 
   :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.cppm\\'" . c++-ts-mode)
          ("\\.inl\\'" . c++-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode)
          ("\\.rs\\'" . rust-ts-mode))
@@ -290,9 +291,12 @@
 (use-package lsp-mode
   :init
 
+  (setq lsp-format-buffer-on-save t)
+
   ;; (setq lsp-log-io t)
   (setq lsp-clients-clangd-args '("--background-index"
                                   "--clang-tidy"
+                                  "--experimental-modules-support"
                                   ;; "--completion-style=detailed"
                                   ;; "--parse-forwarding-functions"
                                   ;; "--fallback-style=Google"
