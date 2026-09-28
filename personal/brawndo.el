@@ -133,6 +133,9 @@
   (setq epg-pinentry-mode 'loopback)
 
   :custom
+
+  (resize-mini-windows nil) ;; TODO keep this? keeps minibuffer from expanding when we use C-a n
+
   (org-gcal-client-id
    (brawndo/get-org-gcal-credential brawndo/org-gcal-secret "client_id"))
 
