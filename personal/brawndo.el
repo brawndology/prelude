@@ -308,16 +308,18 @@
                                   ))
 
   ;; FIXME TIL that this must EXACTLY match the compiler in the json database...need dir local stuff or something
+  ;; XXX ALSO symlinks DON'T work
   (when (eq system-type 'gnu/linux)
-    (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++")
-    ;;(add-to-list 'lsp-clients-clangd-args "--query-driver=/home/brawndo/.local/bin/g++-17")
+    ;; (add-to-list 'lsp-clients-clangd-args "--query-driver=/usr/bin/c++")
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/home/brawndo/toolchains/gcc-17/bin/g++")
     )
 
   (when (eq system-type 'darwin)
-    (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++")
-
+    ;; TODO: these don't seem to exist anymore
     (setq lsp-clients-clangd-executable "/opt/local/libexec/llvm-17/bin/clangd")
-    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/")))
+    (setq lsp-clients-clangd-library-directories '("/usr/" "/opt/custom/gcc-devel/"))
+
+    (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++"))
 
 
   :hook (((c-mode c++-mode) . lsp-deferred)
