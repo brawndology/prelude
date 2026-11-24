@@ -33,7 +33,6 @@
   (use-package-always-ensure t)
   (use-package-always-demand (when (daemonp) t))
 
-  (prelude-lsp-client 'lsp-mode) ;; TODO does this need to be moved to prelude-custom?
   (projectile-enable-cmake-presets t) ;; TODO maybe move this to projectile stanza?
 
   ;; (flycheck-global-modes '(not c-ts-mode c++-ts-mode c-mode c++-mode))
@@ -218,15 +217,6 @@
   (c-ts-mode . brawndo/doxygen-triple-slash)
   (c++-ts-mode . brawndo/doxygen-triple-slash))
 
-
-;; NOTE: enabling this can make unexpected things occur...like emacs expecting
-;; uninstalled grammars to actually be there!
-;;
-;; (use-package combobulate
-;;   :vc (:url "https://github.com/mickeynp/combobulate" :branch "master")
-;;   :custom (combobulate-key-prefix "C-c m")
-;;   :hook ((prog-mode . combobulate-mode)))
-
 (use-package evil-nerd-commenter
   :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
@@ -290,6 +280,10 @@
 ;; https://stackoverflow.com/questions/62624352/can-i-use-gcc-compiler-and-clangd-language-server
 ;; https://ianyepan.github.io/posts/emacs-ide/
 ;; https://taingram.org/blog/emacs-lsp-ide.html
+
+(use-package prelude-custom
+  :ensure nil
+  :custom (prelude-lsp-client 'lsp-mode))
 
 (use-package lsp-mode
   :init
