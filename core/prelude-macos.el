@@ -1,4 +1,4 @@
-;;; prelude-macos.el --- Emacs Prelude: macOS specific settings.
+;;; prelude-macos.el --- Emacs Prelude: macOS specific settings.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright © 2011-2026 Bozhidar Batsov
 ;;
@@ -30,12 +30,19 @@
 
 ;;; Code:
 
+(defvar mac-command-modifier)
+(defvar mac-option-modifier)
+(defvar ns-function-modifier)
+
 ;; On macOS Emacs doesn't use the shell PATH if it's not started from
 ;; the shell. Let's fix that:
-(prelude-require-packages '(exec-path-from-shell))
-
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+;; (Emacs started from a terminal inherits the shell's environment already.)
+(use-package exec-path-from-shell
+  :ensure t
+  :defer t
+  :init
+  (when (prelude-fetch-shell-environment-p)
+    (exec-path-from-shell-initialize)))
 
 ;; It's all in the Meta
 (setq ns-function-modifier 'hyper)
@@ -58,11 +65,6 @@ Windows external keyboard from time to time."
 
 ;; There's no point in hiding the menu bar on macOS, so let's not do it
 (menu-bar-mode +1)
-
-;; Enable emoji, and stop the UI from freezing when trying to display them.
-(when (display-graphic-p)
-  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
-
 
 (provide 'prelude-macos)
 ;;; prelude-macos.el ends here

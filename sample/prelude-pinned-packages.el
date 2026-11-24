@@ -1,3 +1,5 @@
+;;; prelude-pinned-packages.el --- Pin packages to specific archives  -*- lexical-binding: t; -*-
+
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
@@ -83,6 +85,7 @@
         (super-save . "melpa-stable")
         (swift-mode . "melpa-stable")
         (thrift . "melpa-stable")
+        (tokyo-night . "melpa-stable")
         (utop . "melpa-stable")
         (volatile-highlights . "melpa-stable")
         (web-mode . "melpa-stable")

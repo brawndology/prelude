@@ -32,5 +32,9 @@ var/
 .lsp-session*
 gotools/
 eln-cache/
+
+# tree-sitter grammars installed by treesit
+tree-sitter/
+
 forge-database.sqlite
 /secrets/

@@ -1,4 +1,4 @@
-;;; prelude-custom.el --- Emacs Prelude: Prelude's customizable variables.
+;;; prelude-custom.el --- Emacs Prelude: Prelude's customizable variables.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright © 2011-2026 Bozhidar Batsov
 ;;
@@ -52,7 +52,9 @@ or desktop environments that make heavy use of them."
   :package-version '(prelude . "1.1"))
 
 (defcustom prelude-auto-save t
-  "Non-nil values enable Prelude's auto save."
+  "Non-nil values enable Prelude's auto save.
+Buffers visiting files are saved when you switch to another buffer or
+window, and when Emacs loses focus (see `super-save-mode')."
   :type 'boolean
   :group 'prelude)
 
@@ -102,39 +104,44 @@ requires libenchant and a C compiler to build its native module."
                  (const :tag "Jinx (libenchant)" jinx))
   :group 'prelude)
 
-(defcustom prelude-user-init-file (expand-file-name "personal/"
-                                                    user-emacs-directory)
-  "Path to your personal customization file.
-Prelude recommends you only put personal customizations in the
-personal folder.  This variable allows you to specify a specific
-folder as the one that should be visited when running
-`crux-find-user-init-file'.  This can be easily set to the desired buffer
-in Lisp by putting `(setq prelude-user-init-file load-file-name)'
-in the desired elisp file."
-  :type 'string
+(defvar prelude-personal-dir)
+
+(defcustom prelude-user-init-file (or (bound-and-true-p prelude-personal-dir)
+                                      (expand-file-name "personal/" user-emacs-directory))
+  "The file or directory that holds your personal configuration.
+It's what `prelude-find-user-init-file' takes you to.  The default is
+the personal folder, where Prelude recommends that you keep your
+customizations.  If most of them are in one file, point this at it,
+e.g. by putting `(setq prelude-user-init-file load-file-name)' in that
+file."
+  :type 'file
   :group 'prelude)
 
 (defcustom prelude-indent-sensitive-modes
-  '(conf-mode haml-mode python-mode slim-mode yaml-mode)
-  "Modes for which auto-indenting is suppressed."
-  :type 'list
+  '(conf-mode fsharp-mode haml-mode haskell-mode python-base-mode
+              slim-mode yaml-mode yaml-ts-mode)
+  "Modes for which auto-indenting is suppressed.
+That's the modes of languages where the indentation carries meaning, so
+it can't be worked out from the code.  Modes derived from these are
+covered as well."
+  :type '(repeat symbol)
   :group 'prelude)
 
 (defcustom prelude-format-on-save t
-  "Run mode specific format on file before it's saved.
-Currently only applies to TypeScript files."
+  "Whether modules should format a file before it's saved.
+Applies to the modules that format on save: Go and Rust."
   :type 'boolean
   :group 'prelude)
 
 (defcustom prelude-yank-indent-modes '(LaTeX-mode TeX-mode)
   "Modes in which to indent regions that are yanked (or yank-popped).
 Only modes that don't derive from `prog-mode' should be listed here."
-  :type 'list
+  :type '(repeat symbol)
   :group 'prelude)
 
 (defcustom prelude-yank-indent-threshold 1000
   "Threshold (# chars) over which indentation does not automatically occur."
-  :type 'number
+  :type 'natnum
   :group 'prelude)
 
 (defcustom prelude-welcome-screen t
@@ -144,9 +151,37 @@ arguments (e.g. `emacs foo.rb')."
   :type 'boolean
   :group 'prelude)
 
-(defcustom prelude-theme 'zenburn
-  "The default color theme, change this in your /personal/preload config."
-  :type 'symbol
+(defcustom prelude-theme '(tokyo-night-day . tokyo-night)
+  "The color theme Prelude loads on startup.
+Either a theme, or a cons (DAY . NIGHT) of the theme to use during the
+day and the one to use at night.  Prelude switches between the two on
+its own, as told by `prelude-theme-daytime'.  With nil Prelude leaves
+the theme alone.
+
+Change this in your personal/preload config."
+  :type '(choice (const :tag "None" nil)
+                 (symbol :tag "Theme")
+                 (cons :tag "Day and night"
+                       (symbol :tag "Day theme")
+                       (symbol :tag "Night theme")))
+  :group 'prelude)
+
+(defcustom prelude-theme-daytime 'system
+  "When the day theme of `prelude-theme' is in use.
+One of:
+
+- the symbol `system': when the system is in light mode.  Not every
+  Emacs is told about that: it takes Emacs 31 on GTK without X (PGTK),
+  MS-Windows or Android, or the Emacs Plus build on macOS.  Elsewhere
+  the day lasts from 07:00 to 19:00.
+- a cons (START . END) of times like \"07:00\"
+- the symbol `sun': from sunrise to sunset.  Emacs has to know where
+  you are for that: set `calendar-latitude' and `calendar-longitude'."
+  :type '(choice (const :tag "Follow the system's light and dark mode" system)
+                 (cons :tag "From, to"
+                       (string :tag "Day starts at")
+                       (string :tag "Night starts at"))
+                 (const :tag "Sunrise to sunset" sun))
   :group 'prelude)
 
 (defcustom prelude-projectile t
@@ -157,6 +192,23 @@ arguments (e.g. `emacs foo.rb')."
 (defcustom prelude-hippie-expand t
   "Non-nil values enable Prelude's hippie-expand support."
   :type 'boolean
+  :group 'prelude)
+
+(defcustom prelude-smartparens t
+  "Non-nil values enable Prelude's smartparens integration.
+Set this in `personal/preload', since it takes effect when the core loads."
+  :type 'boolean
+  :group 'prelude)
+
+(defcustom prelude-treesit-auto-install 'ask
+  "Whether to install missing tree-sitter grammars when they're needed.
+When you open a file whose mode has a tree-sitter variant and the
+grammar for its language isn't installed, Prelude can install it:
+`ask' asks first, `always' installs it right away and nil never does.
+Without the grammar the classic major mode is used."
+  :type '(choice (const :tag "Ask first" ask)
+                 (const :tag "Always" always)
+                 (const :tag "Never" nil))
   :group 'prelude)
 
 (defcustom prelude-lsp-client 'eglot

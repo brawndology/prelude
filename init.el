@@ -1,4 +1,4 @@
-;;; init.el --- Prelude's configuration entry point.
+;;; init.el --- Prelude's configuration entry point.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2011-2026 Bozhidar Batsov
 ;;
@@ -65,13 +65,15 @@ Users of Emacs Prelude are encouraged to keep their personal configuration
 changes in this directory.  All Emacs Lisp files there are loaded automatically
 by Prelude.")
 (defvar prelude-personal-preload-dir (expand-file-name "preload" prelude-personal-dir)
-  "This directory is for your personal configuration, that you want loaded before Prelude.")
+  "This directory is for personal configuration that's loaded before Prelude.")
 (defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
   "This directory houses packages that are not yet available in ELPA (or MELPA).")
 (defvar prelude-savefile-dir (expand-file-name "savefile" user-emacs-directory)
   "This folder stores all the automatically generated save/history-files.")
 (defvar prelude-modules-file (expand-file-name "prelude-modules.el" prelude-personal-dir)
   "This file contains a list of modules that will be loaded by Prelude.")
+(defvar prelude-personal-early-init-file (expand-file-name "early-init.el" prelude-personal-dir)
+  "Your personal early init file, loaded from Prelude's early-init.el.")
 (defvar prelude-override-package-user-dir t
   "By default prelude installs downloaded packages in <prelude-dir>/elpa.
    Set to nil to override this behaviour")
@@ -105,6 +107,51 @@ by Prelude.")
   (message "[Prelude] Loading personal configuration files from files and directories in %s..." prelude-personal-preload-dir)
   (mapc 'load (directory-files-recursively prelude-personal-preload-dir "^[^#\.].*el$")))
 
+;; config changes made through the customize UI will be stored here
+(setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
+
+(defun prelude-saved-options (file)
+  "Return the Prelude options that Customize has saved in FILE.
+The result is an alist of (OPTION . VALUE), with an entry for every
+variable set by a `custom-set-variables' form whose name starts with
+\"prelude-\".  Nothing else in FILE is evaluated."
+  (let ((options nil))
+    (when (file-readable-p file)
+      (with-temp-buffer
+        (insert-file-contents file)
+        (condition-case nil
+            (while t
+              (let ((form (read (current-buffer))))
+                (when (eq (car-safe form) 'custom-set-variables)
+                  (dolist (arg (cdr form))
+                    ;; ARG is (quote (OPTION EXPRESSION ...))
+                    (let ((spec (car-safe (cdr-safe arg))))
+                      (when (and (symbolp (car-safe spec))
+                                 (string-prefix-p "prelude-" (symbol-name (car spec))))
+                        ;; a value we can't compute yet shouldn't cost
+                        ;; us the options that follow it
+                        (condition-case err
+                            (push (cons (car spec) (eval (cadr spec) t)) options)
+                          (error
+                           (message "[Prelude] Can't use the saved value of %s yet: %s"
+                                    (car spec) (error-message-string err))))))))))
+          ;; the end of the file, or something we can't read
+          (error nil))))
+    (nreverse options)))
+
+;; Many of Prelude's options are consulted while its core is being
+;; loaded.  `custom-file' as a whole is loaded only afterwards, together
+;; with the rest of the personal config: people keep all sorts of code
+;; in it, and its settings are supposed to override Prelude's.  So that
+;; Prelude's own options can still be set with the customize UI, we pick
+;; just those out of the file now.  Whatever a preload file has set is
+;; left alone.
+(let ((saved (prelude-saved-options custom-file)))
+  (dolist (option (seq-remove #'boundp (delete-dups (mapcar #'car saved))))
+    ;; if an option is there more than once, the last value counts, as
+    ;; it will when the file is loaded
+    (set-default option (cdr (assq option (reverse saved))))))
+
 (message "[Prelude] Loading Prelude's core modules...")
 
 ;; load the core stuff
@@ -112,6 +159,7 @@ by Prelude.")
 (require 'prelude-custom)  ;; Needs to be loaded before core, editor and ui
 (require 'prelude-ui)
 (require 'prelude-core)
+(require 'prelude-treesit)
 (require 'prelude-mode)
 (require 'prelude-editor)
 (require 'prelude-global-keybindings)
@@ -143,15 +191,14 @@ by Prelude.")
   (message "[Prelude] You should copy this file to your personal configuration folder and tweak it to your liking")
   (load (expand-file-name "sample/prelude-modules.el" prelude-dir)))
 
-;; config changes made through the customize UI will be stored here
-(setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
+(prelude-check-module-conflicts)
 
 ;; load the personal settings (this includes `custom-file')
 (when (file-exists-p prelude-personal-dir)
   (message "[Prelude] Loading personal configuration files in %s..." prelude-personal-dir)
-  (mapc 'load (delete
-               prelude-modules-file
-               (directory-files prelude-personal-dir 't "^[^#\.].*\\.el$"))))
+  (mapc 'load (seq-difference
+               (directory-files prelude-personal-dir 't "^[^#\.].*\\.el$")
+               (list prelude-modules-file prelude-personal-early-init-file))))
 
 (message "[Prelude] Prelude is ready to do thy bidding, Master %s!" prelude-user)
 
