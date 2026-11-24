@@ -56,6 +56,12 @@
   :hook
   (emacs-lisp-mode . compile-angel-on-save-local-mode))
 
+(use-package paredit
+  :hook (emacs-lisp-mode . paredit-mode)
+  :config
+  ;; Prevent smartparens from conflicting with paredit keys in elisp
+  (with-eval-after-load 'smartparens
+    (add-hook 'emacs-lisp-mode-hook #'turn-off-smartparens-mode)))
 
 ;;------------------------------------------------------------------------------
 ;; User Interface
@@ -319,7 +325,7 @@
     (add-to-list 'lsp-clients-clangd-args "--query-driver=/opt/custom/gcc-devel/bin/g++"))
 
 
-  :hook (((c-mode c++-mode) . lsp-deferred)
+  :hook (((c-mode c++-mode emacs-lisp-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
 
   :commands lsp lsp-deferred)
